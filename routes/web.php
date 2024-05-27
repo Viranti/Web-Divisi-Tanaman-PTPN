@@ -16,6 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::get('/login', function () {
-    return view('login');
+    return view('admin/login');
+});
+Route::get('/dashboard', function () {
+    return view('admin/dashboard');
+});
+Route::get('/raystat', function () {
+    return view('admin/raystat');
+});
+Route::get('/protas', function () {
+    return view('admin/protas');
 });
