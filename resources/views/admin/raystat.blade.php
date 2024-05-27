@@ -60,7 +60,7 @@
                 </div>
             </div>
             <!-- Main -->
-            <button class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>
+            <button id="tambahDataButton" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>
             <table class="w-full mt-10">
                 <thead>
                     <tr class="border-b text-center">
@@ -79,5 +79,45 @@
             </table>
         </div>
     </div>
+    <div class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden grid place-items-center" id="myModal">
+        <div class="bg-white rounded-lg shadow-lg w-1/2">
+            <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">PETA RAYSTAT</p>
+            <div class="p-8">
+                <h2 class="text-2xl font-bold mb-4 text-[#00a639]">Tambah Data</h2>
+                <form class="mt-10">
+                    <div class="mb-4 w-full">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="namaPeta">Nama Dokumen</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="namaDokumen" type="text" placeholder="Nama Dokumen">
+                    </div>
+                    <div class="w-full">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="namaPeta">Upload Dokumen</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="dokumen" type="file" placeholder="Upload Dokumen" accept="application/pdf">
+                    </div>
+                    <p class="text-sm text-gray-400 text-end">File *PDF</p>
+                    <div class="flex justify-center mt-20">
+                        <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded mr-2" id="closeModal">Batal</button>
+                        <button type="submit" class="bg-[#00a639] text-white px-4 py-2 rounded">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
+<!-- js Modal -->
+<script>
+    document.getElementById('tambahDataButton').addEventListener('click', function() {
+        document.getElementById('myModal').classList.remove('hidden');
+    });
+
+    document.getElementById('closeModal').addEventListener('click', function() {
+        document.getElementById('myModal').classList.add('hidden');
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target === document.getElementById('myModal')) {
+            document.getElementById('myModal').classList.add('hidden');
+        }
+    });
+</script>
+
 </html>
