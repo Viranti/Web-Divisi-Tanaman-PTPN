@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProtasController;
+use App\Http\Controllers\RaystatController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,12 +23,9 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin/login');
 });
-Route::get('/dashboard', function () {
-    return view('admin/dashboard');
-});
-Route::get('/raystat', function () {
-    return view('admin/raystat');
-});
-Route::get('/protas', function () {
-    return view('admin/protas');
-});
+// Protas Controller
+Route::get('/protas', [ProtasController::class, 'index'])->name('protas');
+// Dashboard Controller
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+// Raystat Controller
+Route::get('/raystat', [RaystatController::class, 'index'])->name('raystat');

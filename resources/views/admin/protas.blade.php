@@ -20,26 +20,26 @@
             </div>
             <div class="mt-20 flex flex-col gap-8">
                 <!-- dashboard -->
-                <div class="flex gap-3 items-center">
+                <a href="{{ route('dashboard') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
                         <img src="/images/DashboardOf.png" alt="" class="object-cover">
                     </div>
                     <p class="font-semibold text-gray-400 ">Dashboard</p>
-                </div>
+                </a>
                 <!-- Raystat -->
-                <div class="flex gap-3 items-center">
+                <a href="{{ route('raystat') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
                         <img src="/images/RaystatOf.png" alt="" class="object-cover">
                     </div>
                     <p class="font-semibold text-gray-400">Raystat</p>
-                </div>
-                <!-- Prostat -->
-                <div class="flex gap-3 items-center">
+                </a>
+                <!-- Protas -->
+                <a href="{{ route('protas') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
                         <img src="/images/ProtasOn.png" alt="" class="object-cover">
                     </div>
                     <p class="font-bold text-[#00A639]">Protas</p>
-                </div>
+                </a>
             </div>
         </div>
         <!-- Kanan -->
