@@ -64,35 +64,46 @@
             <table class="w-full mt-10">
                 <thead>
                     <tr class="border-b text-center">
-                        <th class="w-16 font-semibold text-sm py-2 text-gray-400">Nama Peta</th>
+                        <th class="w-16 font-semibold text-sm py-2 text-gray-400">Nama Dokumen</th>
                         <th class="w-16 font-semibold text-sm py-2 text-gray-400">Tanggal Modifikasi</th>
                         <th class="w-20 font-semibold text-sm py-2 text-gray-400">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
+                    @foreach ($protas as $prota)
                     <tr class="border-b text-center">
-                        <td class="text-sm py-2">a</td>
-                        <td class="text-sm py-2">a</td>
-                        <td class="text-sm py-2">a</td>
+                        <td class="text-sm py-2">{{ $prota->namaDokument }}</td>
+                        <td class="text-sm py-2">{{ $prota->updated_at->format('d-m-Y H:i') }}</td>
+                        <td class="text-sm py-2 flex gap-2 items-center justify-center">
+                            <a href="">edit</a>
+                            <form action="{{ route('protas.destroy', $prota->id) }}" method="POST" onsubmit="return confirmDelete()">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="text-red-500">Hapus</button>
+                            </form>
+                            <a href="{{ route('protas.download', $prota->id) }}" class="text-blue-500">Download</a>
+                        </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-    <!-- Modal -->
+    <!-- Modal Tambah Data -->
     <div class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden grid place-items-center" id="myModal">
         <div class="bg-white rounded-lg shadow-lg w-1/2">
             <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">PETA PROTAS</p>
             <div class="p-8">
                 <h2 class="text-2xl font-bold mb-4 text-[#00a639]">Tambah Data</h2>
-                <form class="mt-10">
+                <form class="mt-10" action="{{ route('protas.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="mb-4 w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="namaPeta">Nama Dokumen</label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="namaDokumen" type="text" placeholder="Nama Dokumen">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="namaDokumen">Nama Dokumen</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="namaDokument" name="namaDokument" type="text" placeholder="Nama Dokumen">
                     </div>
                     <div class="w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="namaPeta">Upload Dokumen</label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="dokumen" type="file" placeholder="Upload Dokumen" accept="application/pdf">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="document">Upload Dokumen</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="document" name="document" type="file" placeholder="Upload Dokumen" accept="application/pdf">
                     </div>
                     <p class="text-sm text-gray-400 text-end">File *PDF</p>
                     <div class="flex justify-center mt-20">
@@ -119,6 +130,12 @@
             document.getElementById('myModal').classList.add('hidden');
         }
     });
+</script>
+<!-- Js confirmDelete -->
+<script>
+    function confirmDelete() {
+        return confirm('Apakah Anda yakin ingin menghapus dokumen ini?');
+    }
 </script>
 
 </html>

@@ -25,6 +25,10 @@ Route::get('/login', function () {
 });
 // Protas Controller
 Route::get('/protas', [ProtasController::class, 'index'])->name('protas');
+Route::post('/protas/store', [ProtasController::class, 'store'])->name('protas.store');
+Route::get('/protas/download/{id}', [ProtasController::class, 'download'])->name('protas.download');
+Route::get('/protas/edit/{id}', [ProtasController::class, 'edit'])->name('protas.get');
+Route::delete('/protas/delete/{id}', [ProtasController::class, 'destroy'])->name('protas.destroy');
 // Dashboard Controller
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 // Raystat Controller
