@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
@@ -24,8 +25,15 @@ Route::get('/', function () {
 Route::get('/login', function () {
     return view('admin/login');
 });
+// Auth Controller
+Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
+Route::get('/daftar', [AuthController::class, 'showDaftar'])->name('daftar');
+Route::post('/login-store', [AuthController::class, 'login'])->name('login.store');
+Route::post('/daftar-store', [AuthController::class, 'daftar'])->name('daftar.store');
+
+
 // Protas Controller
-Route::get('/protas', [ProtasController::class, 'index'])->name('protas');
+Route::middleware('auth')->get('/protas', [ProtasController::class, 'index'])->name('protas');
 Route::post('/protas/store', [ProtasController::class, 'store'])->name('protas.store');
 Route::get('/protas/download/{id}', [ProtasController::class, 'download'])->name('protas.download');
 Route::get('/protas/edit/{id}', [ProtasController::class, 'edit'])->name('protas.get');
@@ -49,4 +57,4 @@ Route::delete('/tahunTanam/delete/{id}', [TahunTanamController::class, 'destroy'
 Route::put('/tahunTanam/update', [TahunTanamController::class, 'update'])->name('tahunTanam.update');
 
 // Dashboard Controller
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -16,19 +16,17 @@
         </div>
         <!-- Kanan -->
         <div class="p-8 flex flex-col justify-center">
-            <h2 class="text-2xl font-bold mb-4">MASUK</h2>
+            <h2 class="text-2xl font-bold mb-4">DAFTAR</h2>
             <p class="text-gray-600 mb-6">PTPN IV REG III</p>
-            @if(session('error'))
-            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
-                <strong class="font-bold">Error!</strong>
-                <span class="block sm:inline">{{ session('error') }}</span>
-            </div>
-            @endif
-            <form action="{{ route('login.store') }}" method="POST">
-                @csrf
+            <form action="{{ route('daftar.store') }}" method="post"">
+            @csrf
                 <div class="mb-4">
                     <label class="block text-gray-700">E-Mail</label>
                     <input type="email" name="email" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Masukkan Email">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Nama</label>
+                    <input type="name" name="name" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Masukkan Email">
                 </div>
                 <div class="mb-4">
                     <label class="block text-gray-700">Password</label>
@@ -40,7 +38,7 @@
                     </div>
                 </div>
                 <div>
-                    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">MASUK</button>
+                    <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Daftar</button>
                 </div>
                 <div class="flex items-center my-4">
                     <hr class="flex-grow border-gray-300">
@@ -48,7 +46,7 @@
                     <hr class="flex-grow border-gray-300">
                 </div>
                 <div class="text-center mt-4 border border-black py-2 rounded-md">
-                    <a href="#" class="text-black hover:underline">DAFTAR SEKARANG</a>
+                    <a href="#" class="text-black hover:underline">MASUK</a>
                 </div>
             </form>
         </div>
