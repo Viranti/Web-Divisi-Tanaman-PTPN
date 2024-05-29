@@ -47,6 +47,7 @@
                     </div>
                     <p class="font-semibold text-gray-400">Tahun Tanam</p>
                 </a>
+                <a href="{{ route('logout')}}">Logout</a>
             </div>
         </div>
         <!-- Kanan -->
