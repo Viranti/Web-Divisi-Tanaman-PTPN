@@ -31,7 +31,14 @@ Route::get('/protas/edit/{id}', [ProtasController::class, 'edit'])->name('protas
 Route::delete('/protas/delete/{id}', [ProtasController::class, 'destroy'])->name('protas.destroy');
 Route::put('/protas/update', [ProtasController::class, 'update'])->name('protas.update');
 
-// Dashboard Controller
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 // Raystat Controller
 Route::get('/raystat', [RaystatController::class, 'index'])->name('raystat');
+Route::post('/raystat/store', [RaystatController::class, 'store'])->name('raystat.store');
+Route::get('/raystat/download/{id}', [RaystatController::class, 'download'])->name('raystat.download');
+Route::get('/raystat/edit/{id}', [RaystatController::class, 'edit'])->name('raystat.get');
+Route::delete('/raystat/delete/{id}', [RaystatController::class, 'destroy'])->name('raystat.destroy');
+Route::put('/raystat/update', [RaystatController::class, 'update'])->name('raystat.update');
+
+
+// Dashboard Controller
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
