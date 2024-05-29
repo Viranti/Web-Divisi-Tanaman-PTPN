@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Protas;
+use App\Models\Raystat;
 
 class DashboardController extends Controller
 {
@@ -11,7 +13,28 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin/dashboard');
+        // Panggil metode getTotalData untuk mengambil total data
+        $totalData = $this->getTotalData();
+
+        return view('admin/dashboard', ['totalData' => $totalData]);
+    }
+
+    private function getTotalData()
+    {
+        // Menghitung total data dari tabel Protas
+        $totalProtas = Protas::count();
+
+        // Menghitung total data dari tabel Raystats
+        $totalRaystats = Raystat::count();
+
+        // Menghitung total data dari kedua tabel tersebut
+        $totalAllData = $totalProtas + $totalRaystats;
+
+        return [
+            'totalProtas' => $totalProtas,
+            'totalRaystats' => $totalRaystats,
+            'totalAllData' => $totalAllData
+        ];
     }
 
     /**

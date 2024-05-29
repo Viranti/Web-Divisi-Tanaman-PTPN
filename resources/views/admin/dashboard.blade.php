@@ -68,7 +68,7 @@
                     <div>
                         <p class="font-semibold text-lg">Total Data</p>
                         <p class="font-semibold">Raystat</p>
-                        <p class="font-semibold">360</p>
+                        <p class="font-semibold">{{ $totalData['totalRaystats'] }}</p>
                     </div>
                 </div>
                 <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
@@ -78,7 +78,7 @@
                     <div>
                         <p class="font-semibold text-lg">Total Data</p>
                         <p class="font-semibold">Protas</p>
-                        <p class="font-semibold">360</p>
+                        <p class="font-semibold">{{ $totalData['totalProtas'] }}</p>
                     </div>
                 </div>
                 <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
@@ -87,7 +87,7 @@
                     </div>
                     <div>
                         <p class="font-semibold text-lg">Total Seluruh Data</p>
-                        <p class="font-semibold">360</p>
+                        <p class="font-semibold">{{ $totalData['totalAllData'] }}</p>
                     </div>
                 </div>
             </div>
