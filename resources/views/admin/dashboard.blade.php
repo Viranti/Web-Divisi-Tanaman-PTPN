@@ -40,6 +40,13 @@
                     </div>
                     <p class="font-semibold text-gray-400">Protas</p>
                 </a>
+                <!-- Tahun Tanam -->
+                <a href="{{ route('tahunTanam') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/ProtasOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Tahun Tanam</p>
+                </a>
             </div>
         </div>
         <!-- Kanan -->
@@ -60,7 +67,8 @@
                 </div>
             </div>
             <!-- Main -->
-            <div class="grid grid-cols-3 gap-8 mt-24">
+            <div class="grid grid-cols-4 gap-8 mt-24">
+                <!-- raystat -->
                 <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
                     <div class="w-20 h-20 overflow-hidden">
                         <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
@@ -71,6 +79,7 @@
                         <p class="font-semibold">{{ $totalData['totalRaystats'] }}</p>
                     </div>
                 </div>
+                <!-- protas -->
                 <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
                     <div class="w-20 h-20 overflow-hidden">
                         <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
@@ -79,6 +88,17 @@
                         <p class="font-semibold text-lg">Total Data</p>
                         <p class="font-semibold">Protas</p>
                         <p class="font-semibold">{{ $totalData['totalProtas'] }}</p>
+                    </div>
+                </div>
+                <!-- tahun Tanam -->
+                <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
+                    <div class="w-20 h-20 overflow-hidden">
+                        <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
+                    </div>
+                    <div>
+                        <p class="font-semibold text-lg">Total Data</p>
+                        <p class="font-semibold">Tahun Tanam</p>
+                        <p class="font-semibold">{{ $totalData['totalTahunTanam'] }}</p>
                     </div>
                 </div>
                 <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
@@ -94,5 +114,4 @@
         </div>
     </div>
 </body>
-
 </html>

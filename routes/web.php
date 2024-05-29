@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
+use App\Http\Controllers\TahunTanamController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,6 +40,13 @@ Route::get('/raystat/edit/{id}', [RaystatController::class, 'edit'])->name('rays
 Route::delete('/raystat/delete/{id}', [RaystatController::class, 'destroy'])->name('raystat.destroy');
 Route::put('/raystat/update', [RaystatController::class, 'update'])->name('raystat.update');
 
+// tahunTanam Controller
+Route::get('/tahunTanam', [TahunTanamController::class, 'index'])->name('tahunTanam');
+Route::post('/tahunTanam/store', [TahunTanamController::class, 'store'])->name('tahunTanam.store');
+Route::get('/tahunTanam/download/{id}', [TahunTanamController::class, 'download'])->name('tahunTanam.download');
+Route::get('/tahunTanam/edit/{id}', [TahunTanamController::class, 'edit'])->name('tahunTanam.get');
+Route::delete('/tahunTanam/delete/{id}', [TahunTanamController::class, 'destroy'])->name('tahunTanam.destroy');
+Route::put('/tahunTanam/update', [TahunTanamController::class, 'update'])->name('tahunTanam.update');
 
 // Dashboard Controller
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

@@ -40,6 +40,13 @@
                     </div>
                     <p class="font-bold text-[#00A639]">Protas</p>
                 </a>
+                <!-- Tahun Tanam -->
+                <a href="{{ route('tahunTanam') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/ProtasOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Tahun Tanam</p>
+                </a>
             </div>
         </div>
         <!-- Kanan -->

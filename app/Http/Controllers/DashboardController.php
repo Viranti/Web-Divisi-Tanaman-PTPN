@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TahunTanam;
 use Illuminate\Http\Request;
 use App\Models\Protas;
 use App\Models\Raystat;
@@ -26,13 +27,17 @@ class DashboardController extends Controller
 
         // Menghitung total data dari tabel Raystats
         $totalRaystats = Raystat::count();
+        
+        // Menghitung total data dari tabel Raystats
+        $totalTahunTanam = TahunTanam::count();
 
         // Menghitung total data dari kedua tabel tersebut
-        $totalAllData = $totalProtas + $totalRaystats;
+        $totalAllData = $totalProtas + $totalRaystats + $totalTahunTanam;
 
         return [
             'totalProtas' => $totalProtas,
             'totalRaystats' => $totalRaystats,
+            'totalTahunTanam' => $totalTahunTanam,
             'totalAllData' => $totalAllData
         ];
     }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Raystat</title>
+    <title>Tahun Tanam</title>
 </head>
 
 <body class="bg-white">
@@ -29,9 +29,9 @@
                 <!-- Raystat -->
                 <a href="{{ route('raystat') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/RaystatOn.png" alt="" class="object-cover">
+                        <img src="/images/RaystatOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-bold text-[#00A639]">Raystat</p>
+                    <p class="font-bold text-gray-400">Raystat</p>
                 </a>
                 <!-- Protas -->
                 <a href="{{ route('protas') }}" class="flex gap-3 items-center">
@@ -43,9 +43,9 @@
                 <!-- Tahun Tanam -->
                 <a href="{{ route('tahunTanam') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/ProtasOf.png" alt="" class="object-cover">
+                        <img src="/images/ProtasOn.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-semibold text-gray-400">Tahun Tanam</p>
+                    <p class="font-bold text-[#00A639]">Tahun Tanam</p>
                 </a>
             </div>
         </div>
@@ -53,7 +53,7 @@
         <div class="flex-auto px-5 py-8">
             <div class="flex w-full gap-5 justify-between">
                 <div>
-                    <p class="font-bold text-lg">PETA RAYSTAT</p>
+                    <p class="font-bold text-lg">PETA TAHUN TANAM</p>
                     <p class="text-sm text-gray-400">PTPN IV REGIONAL III</p>
                 </div>
                 <div class="flex gap-5 items-center">
@@ -77,18 +77,18 @@
                     </tr>
                 </thead>
                 <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
-                    @foreach ($raystat as $raystats)
+                    @foreach ($tahunTanam as $tahunTanams)
                     <tr class="border-b text-center">
-                        <td class="text-sm py-2">{{ $raystats->namaDokument }}</td>
-                        <td class="text-sm py-2">{{ $raystats->updated_at->format('d-m-Y') }}</td>
+                        <td class="text-sm py-2">{{ $tahunTanams->namaDokument }}</td>
+                        <td class="text-sm py-2">{{ $tahunTanams->updated_at->format('d-m-Y') }}</td>
                         <td class="text-sm py-2 flex gap-2 items-center justify-center">
-                            <a href="#" class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $raystats->id }}" data-nama="{{ $raystats->namaDokument }}">
+                            <a href="#" class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $tahunTanams->id }}" data-nama="{{ $tahunTanams->namaDokument }}">
                                 <div class="w-4 h-4 overflow-hidden">
                                     <img src="/images/penIcon.png" alt="editIcon" class="w-full h-full object-cover">
                                 </div>
                                 <p class="text-white">Edit</p>
                             </a>
-                            <form action="{{ route('raystat.destroy', $raystats->id) }}" method="POST" onsubmit="return confirmDelete()" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
+                            <form action="{{ route('tahunTanam.destroy', $tahunTanams->id) }}" method="POST" onsubmit="return confirmDelete()" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
                                 @csrf
                                 @method('DELETE')
                                 <div class="w-4 h-4 overflow-hidden">
@@ -96,7 +96,7 @@
                                 </div>
                                 <button type="submit" class="text-white">Hapus</button>
                             </form>
-                            <a href="{{ route('raystat.download', $raystats->id) }}" class="bg-gray-400 flex gap-2 rounded-md justify-center items-center px-3 py-2">
+                            <a href="{{ route('tahunTanam.download', $tahunTanams->id) }}" class="bg-gray-400 flex gap-2 rounded-md justify-center items-center px-3 py-2">
                                 <div class="w-4 h-4 overflow-hidden">
                                     <img src="/images/fileIcon.png" alt="downloadnIcon" class="w-full h-full object-cover">
                                 </div>
@@ -115,7 +115,7 @@
             <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">PETA RAYSTAT</p>
             <div class="p-8">
                 <h2 class="text-2xl font-bold mb-4 text-[#00a639]">Tambah Data</h2>
-                <form class="mt-10" action="{{ route('raystat.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="mt-10" action="{{ route('tahunTanam.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-4 w-full">
                         <label class="block text-gray-700 text-sm font-bold mb-4" for="namaDokument">Nama Dokumen</label>
@@ -140,7 +140,7 @@
             <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">PETA RAYSTAT</p>
             <div class="p-8">
                 <h2 class="text-2xl font-bold mb-4 text-[#00a639]">Edit Data</h2>
-                <form class="mt-10" action="{{ route('raystat.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="mt-10" action="{{ route('tahunTanam.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <input type="hidden" id="editProtaId" name="id">
