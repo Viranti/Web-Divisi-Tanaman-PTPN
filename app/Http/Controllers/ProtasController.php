@@ -67,27 +67,32 @@ class ProtasController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
         $request->validate([
-            'namaDokumen' => 'required|string|max:255',
-            'protas' => 'file|mimes:pdf|max:2048'
+            'id' => 'required|exists:protas,id',
+            'namaDokument' => 'required|string|max:255',
+            'document' => 'nullable|file|mimes:pdf|max:2048',
         ]);
 
-        $protas = Protas::findOrFail($id);
-        $protas->nama = $request->namaDokumen;
+        $prota = Protas::find($request->id);
+        $prota->namaDokument = $request->namaDokument;
 
-        if ($request->hasFile('dokumen')) {
-            Storage::delete($protas->path);
-            $path = $request->file('protas')->store('protas');
-            $protas->path = $path;
+        if ($request->hasFile('document')) {
+            // Delete the old file if exists
+            if ($prota->document) {
+                Storage::delete($prota->document);
+            }
+
+            // Store the new file
+            $filePath = $request->file('document')->store('documents');
+            $prota->document = $filePath;
         }
 
-        $protas->save();
+        $prota->save();
 
-        return redirect()->back()->with('success', 'Document updated successfully.');
+        return redirect()->route('protas')->with('success', 'Dokumen berhasil diperbarui');
     }
-
     /**
      * Remove the specified resource from storage.
      */
@@ -113,6 +118,12 @@ class ProtasController extends Controller
             return redirect()->route('protas')->with('error', 'File not found.');
         }
 
-        return response()->download($path);
+        // Mengambil ekstensi file
+        $extension = pathinfo($path, PATHINFO_EXTENSION);
+
+        // Membuat nama file baru dengan menggunakan namaDokument dan menambahkan ekstensi file
+        $fileName = $protas->namaDokument . '.' . $extension;
+
+        return response()->download($path, $fileName);
     }
 }
