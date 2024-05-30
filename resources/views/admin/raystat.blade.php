@@ -61,10 +61,19 @@
                         <p class="font-semibold">VIRA</p>
                         <p class="text-[10px] text-gray-400">Admin</p>
                     </div>
-                    <div class="w-11 h-11 rounded-full overflow-hidden">
+                    <div class="w-11 h-11 rounded-full overflow-hidden cursor-pointer" id="akun">
                         <img src="/images/vector.png" alt="profil">
                     </div>
                 </div>
+            </div>
+            <!-- Modal Logout -->
+            <div class="w-full flex justify-end mt-2 hidden" id="modalLogout"">
+                <a href="{{ route('logout')}}" class="bg-white rounded-md px-4 py-2 flex justify-center items-center gap-2 shadow-md w-32 h-fit">
+                    <div class="w-6 h-6 overflow-hidden">
+                        <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-semibold text-[#30b09d]">Logout</p>
+                </a>
             </div>
             <!-- Main -->
             <button id="tambahDataButton" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>
@@ -202,6 +211,23 @@
         function confirmDelete() {
             return confirm('Apakah Anda yakin ingin menghapus dokumen ini?');
         }
+    </script>
+    <!-- Js Logout -->
+    <script>
+        document.getElementById('akun').addEventListener('click', function(event) {
+            document.getElementById('modalLogout').classList.remove('hidden');
+            event.stopPropagation(); // Prevent click event from bubbling up
+        });
+
+        window.addEventListener('click', function(event) {
+            if (!document.getElementById('modalLogout').contains(event.target) && event.target !== document.getElementById('akun')) {
+                document.getElementById('modalLogout').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('modalLogout').addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent click event from bubbling up
+        });
     </script>
 </body>
 
