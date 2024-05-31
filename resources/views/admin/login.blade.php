@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="icon" href="/images/logo.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -48,7 +49,7 @@
                     <hr class="flex-grow border-gray-300">
                 </div>
                 <div class="text-center mt-4 border border-black py-2 rounded-md">
-                    <a href="#" class="text-black hover:underline">DAFTAR SEKARANG</a>
+                    <a href="{{route('daftar')}}" class="text-black hover:underline">DAFTAR SEKARANG</a>
                 </div>
             </form>
         </div>

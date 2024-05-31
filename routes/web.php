@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
@@ -18,13 +19,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('client/beranda');
-});
-
-Route::get('/login', function () {
-    return view('admin/login');
-});
+Route::get('/profil', function () {
+    return view('client/profil');
+})->name('profil');
 // Auth Controller
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::get('/daftar', [AuthController::class, 'showDaftar'])->name('daftar');
@@ -59,3 +56,6 @@ Route::middleware('auth')->put('/tahunTanam/update', [TahunTanamController::clas
 
 // Dashboard Controller
 Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Dashboard Controller
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
