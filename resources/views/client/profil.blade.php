@@ -94,6 +94,26 @@
                 </div>
             </div>
         </div>
+        <div class="grid place-items-center">
+            <table class="mx-10 mt-10">
+                <thead>
+                    <tr class="text-center bg-[#0bb54b] ">
+                        <th class="border-2 border-black px-4 py-2 w-60">Produksi Tanaman</th>
+                        <th class="border-2 border-black px-4 py-2 w-60">Pemupukan, Pemeliharaan, Poteksi Tanaman</th>
+                        <th class="border-2 border-black px-4 py-2 w-60">Investasi & Pemetaan Tanaman</th>
+                        <th class="border-2 border-black px-4 py-2 w-60">QC & Administrasi Tanaman</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 
