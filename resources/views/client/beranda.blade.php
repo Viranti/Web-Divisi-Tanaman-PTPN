@@ -21,11 +21,11 @@
             </div>
         </div>
         <div class="flex gap-4">
-            <a href="" class="font-semibold text-lg text-[#19E064]">Beranda</a>
-            <a href="" class="font-semibold text-lg">Profil</a>
-            <a href="" class="font-semibold text-lg">Peta</a>
-            <a href="" class="font-semibold text-lg">Kontak</a>
-            <a href="" class="font-semibold text-lg">Login</a>
+            <a href="" class="font-bold text-xl text-[#19E064]">Beranda</a>
+            <a href="" class="font-bold text-xl">Profil</a>
+            <a href="" class="font-bold text-xl">Peta</a>
+            <a href="" class="font-bold text-xl">Kontak</a>
+            <a href="" class="font-bold text-xl">Login</a>
         </div>
     </div>
     <!-- Main Content -->
@@ -57,6 +57,18 @@
                         <p class="font-semibold">Luas Kebun</p>
                         <p class="border py-2 px-4">Luas Kebun</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-32">
+            <div class="w-full h-full overflow-hidden">
+                <img src="/images/sawitDrone.png" alt="" class="w-full h-full rounded-md object-cover">
+            </div>
+            <div class="col-span-2">
+                <p class="font-bold text-2xl">Peremajaan Sawit Rakyat (PSR)</p>
+                <p class="font-semibold text-justify indent-10 mt-10 text-xl">Peremajaan kelapa sawit atau replanting adalah upaya untuk mempertahankan produktivitas perkebunan kelapa sawit dengan cara mengganti tanaman yang sudah tidak produktif dengan tanaman baru.</p>
+                <div class="mt-10">
+                    <a href="" class="bg-[#0bb54b] mt-10 px-4 py-2 font-bold rounded-md">Lanjut Baca >></a>
                 </div>
             </div>
         </div>
