@@ -39,10 +39,10 @@
                 <img src="/images/sawitDrone.png" alt="sawitImg" class="w-full h-full object-cover rounded-xl">
             </div>
             <div class="bg-[#0bb54b] rounded-xl px-10 py-8 shadow-4xl">
-                <p class="font-bold text-center text-2xl">DIVISI TANAMAN PT. PERKEBUNAN NUSANTARA <br>REGIONAL III</p>
-                <p class="mt-20 text-xl font-semibold indent-10 text-justify"> Bagian tanaman termasuk SEVP Operasional yang dilakukan oleh PTPN IV dikarnakan bagian ini membawahi dan mengontrol langsung operasional yang dilakukan oleh kebun. Bagian tamanan melakukan pekerjaan yang dibagi berdasarkan seperti mengatur produksi tanaman, pemupukan dan proteksi tanaman, investasi dan pemetaan tanaman, dan Quality control hingga administrasi tanaman.
+                <p class="font-bold text-center text-2xl text-white">DIVISI TANAMAN PT. PERKEBUNAN NUSANTARA <br>REGIONAL III</p>
+                <p class="mt-20 text-xl font-semibold indent-10 text-justify text-white"> Bagian tanaman termasuk SEVP Operasional yang dilakukan oleh PTPN IV dikarnakan bagian ini membawahi dan mengontrol langsung operasional yang dilakukan oleh kebun. Bagian tamanan melakukan pekerjaan yang dibagi berdasarkan seperti mengatur produksi tanaman, pemupukan dan proteksi tanaman, investasi dan pemetaan tanaman, dan Quality control hingga administrasi tanaman.
                 </p>
-                <p class="mt-10 text-xl font-semibold indent-10 text-justify">Adapun kebun yang di bawahi oleh DIvisi Tanaman sebanyak 20 kebun yang berlokasi di berbagai daerah yang ada di Provinsi Riau.</p>
+                <p class="mt-10 text-xl font-semibold indent-10 text-justify text-white">Adapun kebun yang di bawahi oleh DIvisi Tanaman sebanyak 20 kebun yang berlokasi di berbagai daerah yang ada di Provinsi Riau.</p>
                 <div class="bg-white rounded-xl grid grid-cols-2 gap-4 mx-auto justify-center items-center px-4 py-2 w-[70%] mt-10">
                     <div class="flex flex-col gap-1">
                         <p class="font-semibold text-center">Nama Kebun</p>
@@ -67,8 +67,8 @@
             <div class="col-span-2">
                 <p class="font-bold text-2xl">Peremajaan Sawit Rakyat (PSR)</p>
                 <p class="font-semibold text-justify indent-10 mt-10 text-xl">Peremajaan kelapa sawit atau replanting adalah upaya untuk mempertahankan produktivitas perkebunan kelapa sawit dengan cara mengganti tanaman yang sudah tidak produktif dengan tanaman baru.</p>
-                <div class="mt-10">
-                    <a href="" class="bg-[#0bb54b] mt-10 px-4 py-2 font-bold rounded-md">Lanjut Baca >></a>
+                <div class="mt-10 bg-[#0bb54b] rounded-md px-4 py-2 w-fit">
+                    <a href="" class=" font-semibold text-white">Lanjut Baca >></a>
                 </div>
             </div>
         </div>
