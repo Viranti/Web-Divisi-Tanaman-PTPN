@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/images/logo.ico" type="image/x-icon">
-    <title>Tahun Tanam</title>
+    <title>Berita</title>
 </head>
 
-<body class="bg-white">
+<body>
     <div class="flex">
         <!-- Kiri -->
         <div class="flex-none w-[20%] bg-[#f5f5f5] h-screen px-10 py-8">
@@ -23,16 +23,16 @@
                 <!-- dashboard -->
                 <a href="{{ route('dashboard') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/DashboardOf.png" alt="" class="object-cover">
+                        <img src="/images/dashboardOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-semibold text-gray-400 ">Dashboard</p>
+                    <p class="font-semibold text-gray-400">Dashboard</p>
                 </a>
                 <!-- Raystat -->
                 <a href="{{ route('raystat') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
                         <img src="/images/RaystatOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-bold text-gray-400">Raystat</p>
+                    <p class="font-semibold text-gray-400">Raystat</p>
                 </a>
                 <!-- Protas -->
                 <a href="{{ route('protas') }}" class="flex gap-3 items-center">
@@ -44,16 +44,16 @@
                 <!-- Tahun Tanam -->
                 <a href="{{ route('tahunTanam') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/ProtasOn.png" alt="" class="object-cover">
+                        <img src="/images/ProtasOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-bold text-[#00A639]">Tahun Tanam</p>
+                    <p class="font-semibold text-gray-400">Tahun Tanam</p>
                 </a>
                 <!-- Berita -->
                 <a href="{{ route('berita') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/newsOf.png" alt="" class="object-cover">
+                        <img src="/images/newsOn.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-semibold text-gray-400">Berita</p>
+                    <p class="font-bold text-[#00A639]">Berita</p>
                 </a>
             </div>
         </div>
@@ -61,15 +61,15 @@
         <div class="flex-auto px-5 py-8">
             <div class="flex w-full gap-5 justify-between">
                 <div>
-                    <p class="font-bold text-lg">PETA TAHUN TANAM</p>
+                    <p class="font-bold text-lg">DAFTAR BERITA</p>
                     <p class="text-sm text-gray-400">PTPN IV REGIONAL III</p>
                 </div>
                 <div class="flex gap-5 items-center">
                     <div class="justify-end flex flex-col items-end">
-                        <p class="font-semibold">VIRA</p>
+                        <p class="font-semibold uppercase">{{ Auth::user()->name }}</p>
                         <p class="text-[10px] text-gray-400">Admin</p>
                     </div>
-                    <div class="w-11 h-11 rounded-full overflow-hidden cursor-pointer" id="akun">
+                    <div class="w-11 h-1w-11 rounded-full overflow-hidden cursor-pointer" id="akun">
                         <img src="/images/vector.png" alt="profil">
                     </div>
                 </div>
@@ -88,24 +88,30 @@
             <table class="w-full mt-10">
                 <thead>
                     <tr class="border-b text-center">
-                        <th class="w-48 font-semibold text-sm py-2 text-gray-400">Nama Dokumen</th>
-                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">Tanggal Modifikasi</th>
+                        <th class="w-48 font-semibold text-sm py-2 text-gray-400">Judul Berita</th>
+                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">Deskripsi</th>
+                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">Tanggal Publikasi</th>
+                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">Foto</th>
                         <th class="w-36 font-semibold text-sm py-2 text-gray-400">Aksi</th>
                     </tr>
                 </thead>
                 <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
-                    @foreach ($tahunTanam as $tahunTanams)
+                    @foreach ($berita as $beritas)
                     <tr class="border-b text-center">
-                        <td class="text-sm py-2">{{ $tahunTanams->namaDokument }}</td>
-                        <td class="text-sm py-2">{{ $tahunTanams->updated_at->format('d-m-Y') }}</td>
+                        <td class="text-sm py-2">{{ $beritas->judulBerita }}</td>
+                        <td class="text-sm py-2">{{ implode(' ', array_slice(explode(' ', $beritas->deskripsi), 0, 10)) }}</td>
+                        <td class="text-sm py-2">{{ $beritas->created_at->format('d-m-Y') }}</td>
+                        <td class="text-sm py-2 ">
+                            <img src="{{ Storage::url($beritas->foto) }}" alt="Foto Berita" width="100" height="100" class="inline-block">
+                        </td>
                         <td class="text-sm py-2 flex gap-2 items-center justify-center">
-                            <a href="#" class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $tahunTanams->id }}" data-nama="{{ $tahunTanams->namaDokument }}">
+                            <button class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $beritas->id }}" data-judul="{{ $beritas->judulBerita }}" data-deskripsi="{{ $beritas->deskripsi }}" data-foto="{{ Storage::url($beritas->foto) }}">
                                 <div class="w-4 h-4 overflow-hidden">
                                     <img src="/images/penIcon.png" alt="editIcon" class="w-full h-full object-cover">
                                 </div>
                                 <p class="text-white">Edit</p>
-                            </a>
-                            <form action="{{ route('tahunTanam.destroy', $tahunTanams->id) }}" method="POST" onsubmit="return confirmDelete()" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
+                            </button>
+                            <form action="{{ route('berita.destroy', $beritas->id) }}" method="POST" onsubmit="return confirmDelete()" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
                                 @csrf
                                 @method('DELETE')
                                 <div class="w-4 h-4 overflow-hidden">
@@ -113,12 +119,6 @@
                                 </div>
                                 <button type="submit" class="text-white">Hapus</button>
                             </form>
-                            <a href="{{ route('tahunTanam.download', $tahunTanams->id) }}" class="bg-gray-400 flex gap-2 rounded-md justify-center items-center px-3 py-2">
-                                <div class="w-4 h-4 overflow-hidden">
-                                    <img src="/images/fileIcon.png" alt="downloadnIcon" class="w-full h-full object-cover">
-                                </div>
-                                <p class="text-white">Download</p>
-                            </a>
                         </td>
                     </tr>
                     @endforeach
@@ -129,20 +129,23 @@
     <!-- Modal Tambah Data -->
     <div class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden grid place-items-center" id="myModalTambah">
         <div class="bg-white rounded-lg shadow-lg w-1/2">
-            <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">PETA RAYSTAT</p>
+            <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">TAMBAH BERITA</p>
             <div class="p-8">
                 <h2 class="text-2xl font-bold mb-4 text-[#00a639]">Tambah Data</h2>
-                <form class="mt-10" action="{{ route('tahunTanam.store') }}" method="POST" enctype="multipart/form-data">
+                <form class="mt-10" action="{{ route('berita.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-4 w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="namaDokument">Nama Dokumen</label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="namaDokument" name="namaDokument" type="text" placeholder="Nama Dokumen">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="judulBerita">Judul Berita</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="judulBerita" name="judulBerita" type="text" placeholder="Judul Berita">
+                    </div>
+                    <div class="mb-4 w-full">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="deskripsi">Deskripsi Berita</label>
+                        <textarea class="border-b focus:outline-none focus:shadow-outline w-full" id="deskripsi" name="deskripsi" type="text" placeholder="Deskripsi Berita"></textarea>
                     </div>
                     <div class="w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="document">Upload Dokumen</label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="document" name="document" type="file" placeholder="Upload Dokumen" accept="application/pdf">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="foto">Upload Foto</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="foto" name="foto" type="file" placeholder="Upload Foto" accept="image/*">
                     </div>
-                    <p class="text-sm text-gray-400 text-end">File *PDF</p>
                     <div class="flex justify-center mt-20">
                         <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded mr-2" id="closeTambahModal">Batal</button>
                         <button type="submit" class="bg-[#00a639] text-white px-4 py-2 rounded">Simpan</button>
@@ -154,22 +157,26 @@
     <!-- Modal Edit Data -->
     <div class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden grid place-items-center" id="myModalEdit">
         <div class="bg-white rounded-lg shadow-lg w-1/2">
-            <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">PETA RAYSTAT</p>
+            <p class="w-full text-center bg-[#0fa958] py-2 font-bold text-white rounded-t-lg">EDIT BERITA</p>
             <div class="p-8">
                 <h2 class="text-2xl font-bold mb-4 text-[#00a639]">Edit Data</h2>
-                <form class="mt-10" action="{{ route('tahunTanam.update') }}" method="POST" enctype="multipart/form-data">
+                <form class="mt-10" id="editForm" action="{{ route('berita.update') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
-                    <input type="hidden" id="editProtaId" name="id">
+                    <input type="hidden" id="editBeritaId" name="id">
                     <div class="mb-4 w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="editNamaDokumen">Nama Dokumen</label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="editNamaDokument" name="namaDokument" type="text" placeholder="Nama Dokumen">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="editJudulBerita">Judul Berita</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="editJudulBerita" name="judulBerita" type="text" placeholder="Judul Berita">
+                    </div>
+                    <div class="mb-4 w-full">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="editDeskripsi">Deskripsi Berita</label>
+                        <textarea class="border-b focus:outline-none focus:shadow-outline w-full h-32" id="editDeskripsi" name="deskripsi" placeholder="Deskripsi Berita"></textarea>
                     </div>
                     <div class="w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="editDocument">Upload Dokumen</label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="editDocument" name="document" type="file" placeholder="Upload Dokumen" accept="application/pdf">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="editFoto">Upload Foto</label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="editFoto" name="foto" type="file" placeholder="Upload Foto" accept="image/*">
+                        <img id="currentFoto" class="mt-2" width="100" height="100">
                     </div>
-                    <p class="text-sm text-gray-400 text-end">File *PDF</p>
                     <div class="flex justify-center mt-20">
                         <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded mr-2" id="closeEditModal">Batal</button>
                         <button type="submit" class="bg-[#00a639] text-white px-4 py-2 rounded">Simpan</button>
@@ -197,9 +204,15 @@
         document.querySelectorAll('.edit-button').forEach(button => {
             button.addEventListener('click', function() {
                 const id = this.dataset.id;
-                const nama = this.dataset.nama;
-                document.getElementById('editProtaId').value = id;
-                document.getElementById('editNamaDokument').value = nama;
+                const judul = this.dataset.judul;
+                const deskripsi = this.dataset.deskripsi;
+                const foto = this.dataset.foto;
+
+                document.getElementById('editBeritaId').value = id;
+                document.getElementById('editJudulBerita').value = judul;
+                document.getElementById('editDeskripsi').value = deskripsi;
+                document.getElementById('currentFoto').src = foto;
+
                 document.getElementById('myModalEdit').classList.remove('hidden');
             });
         });

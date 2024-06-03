@@ -48,6 +48,13 @@
                     </div>
                     <p class="font-semibold text-gray-400">Tahun Tanam</p>
                 </a>
+                <!-- Berita -->
+                <a href="{{ route('berita') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/newsOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Berita</p>
+                </a>
             </div>
         </div>
         <!-- Kanan -->

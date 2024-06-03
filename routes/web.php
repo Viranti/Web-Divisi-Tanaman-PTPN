@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
@@ -50,7 +51,7 @@ Route::middleware('auth')->put('/raystat/update', [RaystatController::class, 'up
 Route::middleware('auth')->get('/tahunTanam', [TahunTanamController::class, 'index'])->name('tahunTanam');
 Route::middleware('auth')->post('/tahunTanam/store', [TahunTanamController::class, 'store'])->name('tahunTanam.store');
 Route::middleware('auth')->get('/tahunTanam/download/{id}', [TahunTanamController::class, 'download'])->name('tahunTanam.download');
-Route::middleware('auth')->get('/tahunTanam/edit/{id}', [TahunTanamController::class, 'edit'])->name('tahunTanam.get');
+// Route::middleware('auth')->get('/tahunTanam/edit/{id}', [TahunTanamController::class, 'edit'])->name('tahunTanam.get');
 Route::middleware('auth')->delete('/tahunTanam/delete/{id}', [TahunTanamController::class, 'destroy'])->name('tahunTanam.destroy');
 Route::middleware('auth')->put('/tahunTanam/update', [TahunTanamController::class, 'update'])->name('tahunTanam.update');
 
@@ -59,3 +60,9 @@ Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index
 
 // Dashboard Controller
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
+
+// Berita Controller
+Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::middleware('auth')->post('/berita/store', [BeritaController::class, 'store'])->name('berita.store');
+Route::middleware('auth')->delete('/berita/delete/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+Route::middleware('auth')->put('/berita/update', [BeritaController::class, 'update'])->name('berita.update');
