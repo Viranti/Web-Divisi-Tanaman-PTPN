@@ -62,7 +62,7 @@ Route::middleware('auth')->get('/dashboard', [DashboardController::class, 'index
 Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 
 // Berita Controller
-Route::get('/berita', [BeritaController::class, 'index'])->name('berita');
+Route::middleware('auth')->get('/berita', [BeritaController::class, 'index'])->name('berita');
 Route::middleware('auth')->post('/berita/store', [BeritaController::class, 'store'])->name('berita.store');
 Route::middleware('auth')->delete('/berita/delete/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 Route::middleware('auth')->put('/berita/update', [BeritaController::class, 'update'])->name('berita.update');
