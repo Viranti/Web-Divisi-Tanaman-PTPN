@@ -57,7 +57,8 @@ class BeritaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $berita = Berita::findOrFail($id);
+        return view('client/detilBerita', compact('berita'));
     }
 
     /**
