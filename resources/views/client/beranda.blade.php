@@ -35,7 +35,7 @@
         <div class="w-full h-[550px] overflow-hidden mt-5">
             <img src="/images/berandaImage.png" alt="image1" class="w-full h-full object-cover">
         </div>
-        <div class="grid grid-cols-2 gap-12 mt-10 px-20">
+        <div class="grid grid-cols-2 gap-12 mt-10 px-20 mb-20">
             <div class="w-full h-[700px] overflow-hidden">
                 <img src="/images/sawitDrone.png" alt="sawitImg" class="w-full h-full object-cover rounded-xl">
             </div>
@@ -61,18 +61,20 @@
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-32">
+        @foreach ($berita as $beritas)
+        <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-10">
             <div class="w-full h-full overflow-hidden">
-                <img src="/images/sawitDrone.png" alt="" class="w-full h-full rounded-md object-cover">
+                <img src="{{ Storage::url($beritas->foto) }}" alt="" class="w-full h-full rounded-xl object-cover">
             </div>
             <div class="col-span-2">
-                <p class="font-bold text-2xl">Peremajaan Sawit Rakyat (PSR)</p>
-                <p class="font-semibold text-justify indent-10 mt-10 text-xl">Peremajaan kelapa sawit atau replanting adalah upaya untuk mempertahankan produktivitas perkebunan kelapa sawit dengan cara mengganti tanaman yang sudah tidak produktif dengan tanaman baru.</p>
+                <p class="font-bold text-2xl">{{ $beritas->judulBerita }}</p>
+                <p class="font-semibold text-justify indent-10 mt-10 text-xl">{{$beritas->deskripsi}}</p>
                 <div class="mt-10 bg-[#0bb54b] rounded-md px-4 py-2 w-fit">
                     <a href="" class=" font-semibold text-white">Lanjut Baca >></a>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 </body>
 
