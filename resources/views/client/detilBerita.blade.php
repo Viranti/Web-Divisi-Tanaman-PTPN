@@ -9,7 +9,7 @@
     <title>Detil Berita</title>
 </head>
 
-<body>
+<body class="pb-10">
     <!-- Header -->
     <div class="flex justify-between px-10 py-4 justify-center items-center">
         <a href="{{route('beranda')}}" class="flex gap-2 justify-center items-center">
@@ -37,7 +37,7 @@
         <div class="float-left w-[30%] h-60 overflow-hidden mr-10">
             <img src="{{ Storage::url($berita->foto) }}" alt="" class="w-full h-full object-cover rounded-xl">
         </div>
-        <p class="font-semibold text-xl text-justify indent-10">{{ $berita->deskripsi }}</p>
+        <p class="font-sans text-xl text-justify indent-10">{{ $berita->deskripsi }}</p>
     </div>
 </body>
 
