@@ -32,8 +32,8 @@ class BeritaController extends Controller
     {
         // Validasi input
         $request->validate([
-            'judulBerita' => 'required|string|max:255',
-            'deskripsi' => 'required|string|max:1000',
+            'judulBerita' => 'required|string|max:1000',
+            'deskripsi' => 'required|string|max:10000',
             'foto' => 'required|file|mimes:jpg,jpeg,png|max:10000'
         ]);
 

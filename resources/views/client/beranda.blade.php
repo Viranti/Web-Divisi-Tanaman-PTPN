@@ -68,7 +68,7 @@
             </div>
             <div class="col-span-2">
                 <p class="font-bold text-2xl">{{ $beritas->judulBerita }}</p>
-                <p class="font-semibold text-justify indent-10 mt-10 text-xl">{{$beritas->deskripsi}}</p>
+                <p class="font-semibold text-justify indent-10 mt-10 text-xl">{{implode(' ', array_slice(explode(' ', $beritas->deskripsi), 0, 30))}}</p>
                 <div class="mt-10 bg-[#0bb54b] rounded-md px-4 py-2 w-fit">
                     <a href="{{ route('berita.show', $beritas->id) }}" class=" font-semibold text-white">Lanjut Baca >></a>
                 </div>
