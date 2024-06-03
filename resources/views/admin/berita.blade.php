@@ -102,7 +102,7 @@
                         <td class="text-sm py-2">{{ implode(' ', array_slice(explode(' ', $beritas->deskripsi), 0, 10)) }}</td>
                         <td class="text-sm py-2">{{ $beritas->created_at->format('d-m-Y') }}</td>
                         <td class="text-sm py-2 ">
-                            <img src="{{ Storage::url($beritas->foto) }}" alt="Foto Berita" width="100" height="100" class="inline-block">
+                            <img src="{{ Storage::url($beritas->foto) }}" alt="Foto Berita" class="inline-block w-32 h-20 object-cover">
                         </td>
                         <td class="text-sm py-2 flex gap-2 items-center justify-center">
                             <button class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $beritas->id }}" data-judul="{{ $beritas->judulBerita }}" data-deskripsi="{{ $beritas->deskripsi }}" data-foto="{{ Storage::url($beritas->foto) }}">
@@ -140,7 +140,7 @@
                     </div>
                     <div class="mb-4 w-full">
                         <label class="block text-gray-700 text-sm font-bold mb-4" for="deskripsi">Deskripsi Berita</label>
-                        <textarea class="border-b focus:outline-none focus:shadow-outline w-full" id="deskripsi" name="deskripsi" type="text" placeholder="Deskripsi Berita"></textarea>
+                        <textarea class="border-b focus:outline-none focus:shadow-outline w-full h-40" id="deskripsi" name="deskripsi" type="text" placeholder="Deskripsi Berita"></textarea>
                     </div>
                     <div class="w-full">
                         <label class="block text-gray-700 text-sm font-bold mb-4" for="foto">Upload Foto</label>
@@ -170,7 +170,7 @@
                     </div>
                     <div class="mb-4 w-full">
                         <label class="block text-gray-700 text-sm font-bold mb-4" for="editDeskripsi">Deskripsi Berita</label>
-                        <textarea class="border-b focus:outline-none focus:shadow-outline w-full h-32" id="editDeskripsi" name="deskripsi" placeholder="Deskripsi Berita"></textarea>
+                        <textarea class="border-b focus:outline-none focus:shadow-outline w-full h-40" id="editDeskripsi" name="deskripsi" placeholder="Deskripsi Berita"></textarea>
                     </div>
                     <div class="w-full">
                         <label class="block text-gray-700 text-sm font-bold mb-4" for="editFoto">Upload Foto</label>
