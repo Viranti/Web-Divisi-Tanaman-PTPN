@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KebunController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
 use App\Http\Controllers\TahunTanamController;
@@ -67,3 +68,9 @@ Route::middleware('auth')->post('/berita/store', [BeritaController::class, 'stor
 Route::middleware('auth')->delete('/berita/delete/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
 Route::middleware('auth')->put('/berita/update', [BeritaController::class, 'update'])->name('berita.update');
 Route::get('/berita/{id}', [BeritaController::class, 'show'])->name('berita.show');
+
+// Kebun Controler
+Route::middleware('auth')->get('/kebun', [KebunController::class, 'index'])->name('kebun');
+Route::middleware('auth')->post('/kebun/store', [KebunController::class, 'store'])->name('kebun.store');
+Route::middleware('auth')->delete('/kebun/delete/{id}', [KebunController::class, 'destroy'])->name('kebun.destroy');
+Route::middleware('auth')->put('/kebun/update', [KebunController::class, 'update'])->name('kebun.update');

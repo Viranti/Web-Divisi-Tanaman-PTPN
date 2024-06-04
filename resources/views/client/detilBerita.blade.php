@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/images/logo.ico" type="image/x-icon">
-    <title>Detil Berita</title>
+    <title>Berita</title>
 </head>
 
 <body class="pb-10">
@@ -32,7 +32,7 @@
     <div class="mt-16">
         <a href="{{route('beranda')}}" class="mt-5 justify-end mx-24 font-semibold text-xl">< Kembali</a>
     </div>
-    <p class="mt-5 text-center font-bold text-3xl">{{ $berita->judulBerita }}</p>
+    <p class="mt-5 mx-24 text-center font-bold text-3xl">{{ $berita->judulBerita }}</p>
     <div class="mt-20 mx-24">
         <div class="float-left w-[30%] h-60 overflow-hidden mr-10">
             <img src="{{ Storage::url($berita->foto) }}" alt="" class="w-full h-full object-cover rounded-xl">
