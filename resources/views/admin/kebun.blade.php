@@ -72,7 +72,7 @@
         <div class="flex-auto px-5 py-8">
             <div class="flex w-full gap-5 justify-between">
                 <div>
-                    <p class="font-bold text-lg">DAFTAR BERITA</p>
+                    <p class="font-bold text-lg">DATA KEBUN</p>
                     <p class="text-sm text-gray-400">PTPN IV REGIONAL III</p>
                 </div>
                 <div class="flex gap-5 items-center">
@@ -144,8 +144,8 @@
                         <input class="border-b focus:outline-none focus:shadow-outline w-full" id="namaKebun" name="namaKebun" type="text" placeholder="Nama Kebun">
                     </div>
                     <div class="mb-4 w-full">
-                        <label class="block text-gray-700 text-sm font-bold mb-4" for="luas">luas Kebun </label>
-                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="luas" name="luas" type="text" placeholder="luas Berita">
+                        <label class="block text-gray-700 text-sm font-bold mb-4" for="luas">Luas Kebun </label>
+                        <input class="border-b focus:outline-none focus:shadow-outline w-full" id="luas" name="luas" type="text" placeholder="Luas Kebun">
                     </div>
                     <div class="flex justify-center mt-20">
                         <button type="button" class="bg-gray-500 text-white px-4 py-2 rounded mr-2" id="closeTambahModal">Batal</button>
