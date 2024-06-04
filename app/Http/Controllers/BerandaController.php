@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Berita;
+use App\Models\Kebun;
 use Illuminate\Http\Request;
 
 class BerandaController extends Controller
@@ -13,7 +14,8 @@ class BerandaController extends Controller
     public function index()
     {
         $berita = Berita::all();
-        return view('client/beranda', compact('berita'));
+        $kebuns = Kebun::all(); 
+        return view('client/beranda', compact('berita','kebuns'));
     }
 
     /**

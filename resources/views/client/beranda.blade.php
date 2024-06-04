@@ -46,17 +46,18 @@
                 <p class="mt-10 text-xl font-semibold indent-10 text-justify text-white">Adapun kebun yang di bawahi oleh DIvisi Tanaman sebanyak 20 kebun yang berlokasi di berbagai daerah yang ada di Provinsi Riau.</p>
                 <div class="bg-white rounded-xl grid grid-cols-2 gap-4 mx-auto justify-center items-center px-4 py-2 w-[70%] mt-10">
                     <div class="flex flex-col gap-1">
-                        <p class="font-semibold text-center">Nama Kebun</p>
-                        <select id="namaKebun" name="namaKebun" class="border py-2 px-4 w-full">
+                        <p class="font-semibold">Nama Kebun</p>
+                        <select id="namaKebun" name="namaKebun" class="border py-2 px-4 w-full" onchange="updateLuasKebun()">
                             <option value="" disabled selected>- Pilih Nama Kebun -</option>
-                            <option value="" class="text-sm">Sei Rokan</option>
-                            <option value="" class="text-sm">Kebun B</option>
-                            <option value="" class="text-sm">Kebun C</option>
+                            @foreach ($kebuns as $kebun)
+                            <option value="{{ $kebun->id }}" data-luas="{{ $kebun->luas }}" class="text-sm">{{ $kebun->namaKebun }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="flex flex-col gap-1">
                         <p class="font-semibold">Luas Kebun</p>
-                        <p class="border py-2 px-4">Luas Kebun</p>
+                        <!-- Data Luas -->
+                        <p id="luasKebun" class="border py-2 px-4">Luas Kebun</p>
                     </div>
                 </div>
             </div>
@@ -76,6 +77,16 @@
         </div>
         @endforeach
     </div>
+    <!-- Js Data Kebun -->
+    <script>
+        function updateLuasKebun() {
+            const select = document.getElementById('namaKebun');
+            const luasKebun = document.getElementById('luasKebun');
+            const selectedOption = select.options[select.selectedIndex];
+            const luas = selectedOption.getAttribute('data-luas');
+            luasKebun.textContent = luas ? luas : 'Luas Kebun';
+        }
+    </script>
 </body>
 
 </html>
