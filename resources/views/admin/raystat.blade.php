@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/images/logo.ico" type="image/x-icon">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Raystat</title>
 </head>
 
@@ -48,6 +52,20 @@
                     </div>
                     <p class="font-semibold text-gray-400">Tahun Tanam</p>
                 </a>
+                <!-- Berita -->
+                <a href="{{ route('berita') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/newsOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Berita</p>
+                </a>
+                <!-- Kebun -->
+                <a href="{{ route('kebun') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/kebunOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Kebun</p>
+                </a>
             </div>
         </div>
         <!-- Kanan -->
@@ -69,11 +87,11 @@
             </div>
             <!-- Modal Logout -->
             <div class="w-full flex justify-end mt-2 hidden" id="modalLogout"">
-                <a href="{{ route('logout')}}" class="bg-white rounded-md px-4 py-2 flex justify-center items-center gap-2 shadow-md w-32 h-fit">
-                    <div class="w-6 h-6 overflow-hidden">
-                        <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
-                    </div>
-                    <p class="font-semibold text-[#30b09d]">Logout</p>
+                <a href=" {{ route('logout')}}" class="bg-white rounded-md px-4 py-2 flex justify-center items-center gap-2 shadow-md w-32 h-fit">
+                <div class="w-6 h-6 overflow-hidden">
+                    <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
+                </div>
+                <p class="font-semibold text-[#30b09d]">Logout</p>
                 </a>
             </div>
             <!-- Main -->
@@ -98,7 +116,7 @@
                                 </div>
                                 <p class="text-white">Edit</p>
                             </a>
-                            <form action="{{ route('raystat.destroy', $raystats->id) }}" method="POST" onsubmit="return confirmDelete()" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
+                            <form action="{{ route('raystat.destroy', $raystats->id) }}" method="POST" onsubmit="confirmDelete(event)" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
                                 @csrf
                                 @method('DELETE')
                                 <div class="w-4 h-4 overflow-hidden">
@@ -209,8 +227,22 @@
     </script>
     <!-- Js confirmDelete -->
     <script>
-        function confirmDelete() {
-            return confirm('Apakah Anda yakin ingin menghapus dokumen ini?');
+        function confirmDelete(event) {
+            event.preventDefault(); // Mencegah pengiriman form secara default
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda tidak akan dapat mengembalikan ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, saya yakin!',
+                cancelButtonText: 'Tidak, batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit(); // Kirim form jika konfirmasi
+                }
+            });
         }
     </script>
     <!-- Js Logout -->

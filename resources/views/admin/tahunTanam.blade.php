@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/images/logo.ico" type="image/x-icon">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Tahun Tanam</title>
 </head>
 
@@ -47,6 +51,20 @@
                         <img src="/images/ProtasOn.png" alt="" class="object-cover">
                     </div>
                     <p class="font-bold text-[#00A639]">Tahun Tanam</p>
+                </a>
+                <!-- Berita -->
+                <a href="{{ route('berita') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/newsOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Berita</p>
+                </a>
+                <!-- Kebun -->
+                <a href="{{ route('kebun') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/kebunOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Kebun</p>
                 </a>
             </div>
         </div>
@@ -98,7 +116,7 @@
                                 </div>
                                 <p class="text-white">Edit</p>
                             </a>
-                            <form action="{{ route('tahunTanam.destroy', $tahunTanams->id) }}" method="POST" onsubmit="return confirmDelete()" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
+                            <form action="{{ route('tahunTanam.destroy', $tahunTanams->id) }}" method="POST" onsubmit="return confirmDelete(event)" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
                                 @csrf
                                 @method('DELETE')
                                 <div class="w-4 h-4 overflow-hidden">
@@ -209,8 +227,22 @@
     </script>
     <!-- Js confirmDelete -->
     <script>
-        function confirmDelete() {
-            return confirm('Apakah Anda yakin ingin menghapus dokumen ini?');
+        function confirmDelete(event) {
+            event.preventDefault(); // Mencegah pengiriman form secara default
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda tidak akan dapat mengembalikan ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, saya yakin!',
+                cancelButtonText: 'Tidak, batalkan!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    event.target.submit(); // Kirim form jika konfirmasi
+                }
+            });
         }
     </script>
     <!-- Js Logout -->

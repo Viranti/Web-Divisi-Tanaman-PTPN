@@ -35,7 +35,7 @@
         <div class="w-full h-[550px] overflow-hidden mt-5">
             <img src="/images/DJI_0120.png" alt="image1" class="w-full h-full object-cover">
         </div>
-        <div class="grid grid-cols-2 gap-12 mt-10 px-20">
+        <div class="grid grid-cols-2 gap-12 mt-10 px-20 mb-20">
             <div class="w-full h-[700px] overflow-hidden">
                 <img src="/images/sawit 1 (1).png" alt="sawitImg" class="w-full h-full object-cover rounded-xl">
             </div>
@@ -46,34 +46,47 @@
                 <p class="mt-10 text-xl font-semibold indent-10 text-justify text-white">Adapun kebun yang di bawahi oleh DIvisi Tanaman sebanyak 20 kebun yang berlokasi di berbagai daerah yang ada di Provinsi Riau.</p>
                 <div class="bg-white rounded-xl grid grid-cols-2 gap-4 mx-auto justify-center items-center px-4 py-2 w-[70%] mt-10">
                     <div class="flex flex-col gap-1">
-                        <p class="font-semibold text-center">Nama Kebun</p>
-                        <select id="namaKebun" name="namaKebun" class="border py-2 px-4 w-full">
+                        <p class="font-semibold">Nama Kebun</p>
+                        <select id="namaKebun" name="namaKebun" class="border py-2 px-4 w-full" onchange="updateLuasKebun()">
                             <option value="" disabled selected>- Pilih Nama Kebun -</option>
-                            <option value="" class="text-sm">Sei Rokan</option>
-                            <option value="" class="text-sm">Kebun B</option>
-                            <option value="" class="text-sm">Kebun C</option>
+                            @foreach ($kebuns as $kebun)
+                            <option value="{{ $kebun->id }}" data-luas="{{ $kebun->luas }}" class="text-sm">{{ $kebun->namaKebun }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="flex flex-col gap-1">
                         <p class="font-semibold">Luas Kebun</p>
-                        <p class="border py-2 px-4">Luas Kebun</p>
+                        <!-- Data Luas -->
+                        <p id="luasKebun" class="border py-2 px-4">Luas Kebun</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-32">
+        @foreach ($berita as $beritas)
+        <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-10">
             <div class="w-full h-full overflow-hidden">
-                <img src="/images/sawit 2 (1).png" alt="" class="w-full h-full rounded-md object-cover">
+                <img src="/images/sawitDrone.png" alt="" class="w-full h-full rounded-md object-cover">
             </div>
             <div class="col-span-2">
-                <p class="font-bold text-2xl">Peremajaan Sawit Rakyat (PSR)</p>
-                <p class="font-semibold text-justify indent-10 mt-10 text-xl">Peremajaan kelapa sawit atau replanting adalah upaya untuk mempertahankan produktivitas perkebunan kelapa sawit dengan cara mengganti tanaman yang sudah tidak produktif dengan tanaman baru.</p>
+                <p class="font-bold text-2xl">{{ $beritas->judulBerita }}</p>
+                <p class="font-semibold text-justify indent-10 mt-10 text-xl">{{implode(' ', array_slice(explode(' ', $beritas->deskripsi), 0, 30))}}</p>
                 <div class="mt-10 bg-[#0bb54b] rounded-md px-4 py-2 w-fit">
-                    <a href="" class=" font-semibold text-white">Lanjut Baca >></a>
+                    <a href="{{ route('berita.show', $beritas->id) }}" class=" font-semibold text-white">Lanjut Baca >></a>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
+    <!-- Js Data Kebun -->
+    <script>
+        function updateLuasKebun() {
+            const select = document.getElementById('namaKebun');
+            const luasKebun = document.getElementById('luasKebun');
+            const selectedOption = select.options[select.selectedIndex];
+            const luas = selectedOption.getAttribute('data-luas');
+            luasKebun.textContent = luas ? luas : 'Luas Kebun';
+        }
+    </script>
 </body>
 
 </html>

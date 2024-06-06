@@ -30,7 +30,7 @@
         </div>
     </div>
     <!-- Main Content -->
-    <div class="mt-5">
+    <div class="mt-5 pb-10">
         <div class="w-[100%] h-[550px] overflow-hidden">
             <img src="/images/DJI_0089.png" alt="Sawit" class="w-full h-full object-cover">
         </div>
@@ -105,6 +105,42 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Andra Novriza</td>
+                        <td class="border-2 border-black px-4 py-2">Nava Karina</td>
+                        <td class="border-2 border-black px-4 py-2">Farid Ramansyah</td>
+                        <td class="border-2 border-black px-4 py-2">Muhktaril Urfa Akroma</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                    </tr>
+                    <tr class="text-center">
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Test</td>
+                    </tr>
                     <tr class="text-center">
                         <td class="border-2 border-black px-4 py-2">Test</td>
                         <td class="border-2 border-black px-4 py-2">Test</td>
