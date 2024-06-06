@@ -32,7 +32,7 @@
     <!-- Main Content -->
     <div class="mt-5">
         <div class="w-[100%] h-[550px] overflow-hidden">
-            <img src="/images/image2.png" alt="Sawit" class="w-full h-full object-cover">
+            <img src="/images/DJI_0089.png" alt="Sawit" class="w-full h-full object-cover">
         </div>
         <p class="font-bold text-3xl mt-10 text-center"> VISI DAN MISI DIVISI TANAMAN <br>
             PT. PERKEBUNAN NUSANTARA IV REGIONAL 3
@@ -54,7 +54,7 @@
         <p class="text-3xl font-bold text-center mt-10">Struktur Organisasi <br> Divisi Tanaman PT. Perkebunan Nusantara IV Regional III</p>
         <div class="flex flex-col items-center mt-10">
             <div class="w-32 h-44 overflow-hidden">
-                <img src="/images/Kadiv.png" alt="kadiv" class="w-full h-full">
+                <img src="/images/Pak daniel.png" alt="kadiv" class="w-full rounded-full h-full">
             </div>
             <p class="px-4 py-2 border-2 border-black text-center font-bold mt-5 rounded-xl">Daniel Triandio <br>
                 Kepala Bagian Tanaman
@@ -62,7 +62,7 @@
             <div class="flex gap-10 mt-10 items-center justify-center">
                 <div class="flex flex-col justify-center items-center">
                     <div class="w-32 h-44 overflow-hidden">
-                        <img src="/images/Kadiv.png" alt="kadiv" class="w-full h-full">
+                        <img src="/images/p yasir.png" alt="kadiv" class="w-full rounded-full h-full">
                     </div>
                     <p class="px-4 py-2 border-2 border-black text-center font-bold mt-5 rounded-xl">Zafri Yaseer<br>
                         Ka. Sub. Bagian Produksi
@@ -70,7 +70,7 @@
                 </div>
                 <div class="flex flex-col justify-center items-center">
                     <div class="w-32 h-44 overflow-hidden">
-                        <img src="/images/Kadiv.png" alt="kadiv" class="w-full h-full">
+                        <img src="/images/Pak niki.png" alt="kadiv" class="w-full rounded-full h-full">
                     </div>
                     <p class="px-4 py-2 border-2 border-black text-center font-bold mt-5 rounded-xl">Nicky SH Silitonga<br>
                         Ka. Sub. Bagian Investasi dan Pemetaan
@@ -78,7 +78,7 @@
                 </div>
                 <div class="flex flex-col justify-center items-center">
                     <div class="w-32 h-44 overflow-hidden">
-                        <img src="/images/Kadiv.png" alt="kadiv" class="w-full h-full">
+                        <img src="/images/p alfan.png" alt="kadiv" class="w-full rounded-full h-full">
                     </div>
                     <p class="px-4 py-2 border-2 border-black text-center font-bold mt-5 rounded-xl">Alfan Solih Azhar Simangunsong<br>
                         Ka. Sub. Bagian Pemupukan dan Proteksi
@@ -86,10 +86,10 @@
                 </div>
                 <div class="flex flex-col justify-center items-center">
                     <div class="w-32 h-44 overflow-hidden">
-                        <img src="/images/Kadiv.png" alt="kadiv" class="w-full h-full">
+                        <img src="/images/buk nela.png" alt="kadiv" class="w-full rounded-full h-full">
                     </div>
                     <p class="px-4 py-2 border-2 border-black text-center font-bold mt-5 rounded-xl">Nela Anggita<br>
-                        Ka. Sub. Bagian QC & Proteksi
+                        Ka. Sub. Bagian QC & Administrasi
                     </p>
                 </div>
             </div>

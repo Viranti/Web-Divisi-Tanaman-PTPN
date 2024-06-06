@@ -33,11 +33,11 @@
     <div class="mt-10">
         <p class="px-10 font-semibold text-lg">Selamat Datang Di Divisi Tanaman</p>
         <div class="w-full h-[550px] overflow-hidden mt-5">
-            <img src="/images/berandaImage.png" alt="image1" class="w-full h-full object-cover">
+            <img src="/images/DJI_0120.png" alt="image1" class="w-full h-full object-cover">
         </div>
         <div class="grid grid-cols-2 gap-12 mt-10 px-20">
             <div class="w-full h-[700px] overflow-hidden">
-                <img src="/images/sawitDrone.png" alt="sawitImg" class="w-full h-full object-cover rounded-xl">
+                <img src="/images/sawit 1 (1).png" alt="sawitImg" class="w-full h-full object-cover rounded-xl">
             </div>
             <div class="bg-[#0bb54b] rounded-xl px-10 py-8 shadow-4xl">
                 <p class="font-bold text-center text-2xl text-white">DIVISI TANAMAN PT. PERKEBUNAN NUSANTARA <br>REGIONAL III</p>
@@ -63,7 +63,7 @@
         </div>
         <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-32">
             <div class="w-full h-full overflow-hidden">
-                <img src="/images/sawitDrone.png" alt="" class="w-full h-full rounded-md object-cover">
+                <img src="/images/sawit 2 (1).png" alt="" class="w-full h-full rounded-md object-cover">
             </div>
             <div class="col-span-2">
                 <p class="font-bold text-2xl">Peremajaan Sawit Rakyat (PSR)</p>
