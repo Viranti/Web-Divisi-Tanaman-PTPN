@@ -65,7 +65,7 @@
         @foreach ($berita as $beritas)
         <div class="grid grid-cols-3 h-72 gap-12 px-20 mt-10">
             <div class="w-full h-full overflow-hidden">
-                <img src="/images/sawitDrone.png" alt="" class="w-full h-full rounded-md object-cover">
+                <img src="{{ Storage::url($beritas->foto) }}" alt="" class="w-full h-full rounded-xl object-cover">
             </div>
             <div class="col-span-2">
                 <p class="font-bold text-2xl">{{ $beritas->judulBerita }}</p>
