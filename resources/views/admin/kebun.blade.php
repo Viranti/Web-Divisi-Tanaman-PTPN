@@ -69,7 +69,7 @@
             </div>
         </div>
         <!-- Kanan -->
-        <div class="flex-auto px-5 py-8">
+        <div class="flex-auto px-5 py-8 h-screen">
             <div class="flex w-full gap-5 justify-between">
                 <div>
                     <p class="font-bold text-lg">DATA KEBUN</p>
@@ -96,39 +96,42 @@
             </div>
             <!-- Main -->
             <button id="tambahDataButton" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>
-            <table class="w-full mt-10">
-                <thead>
-                    <tr class="border-b text-center">
-                        <th class="w-48 font-semibold text-sm py-2 text-gray-400">Nama Kebun</th>
-                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">Luas</th>
-                        <th class="w-36 font-semibold text-sm py-2 text-gray-400">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
-                    @foreach ($kebun as $kebuns)
-                    <tr class="border-b text-center">
-                        <td class="text-sm py-2">{{ $kebuns->namaKebun }}</td>
-                        <td class="text-sm py-2">{{ $kebuns->luas }}</td>
-                        <td class="text-sm py-2 flex gap-2 items-center justify-center">
-                            <button class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $kebuns->id }}" data-nama="{{ $kebuns->namaKebun }}" data-luas="{{ $kebuns->luas }}">
-                                <div class="w-4 h-4 overflow-hidden">
-                                    <img src="/images/penIcon.png" alt="editIcon" class="w-full h-full object-cover">
-                                </div>
-                                <p class="text-white">Edit</p>
-                            </button>
-                            <form action="{{ route('kebun.destroy', $kebuns->id) }}" method="POST" onsubmit="return confirmDelete(event)" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
-                                @csrf
-                                @method('DELETE')
-                                <div class="w-4 h-4 overflow-hidden">
-                                    <img src="/images/trashIcon.png" alt="deleteIcon" class="w-full h-full object-cover">
-                                </div>
-                                <button type="submit" class="text-white">Hapus</button>
-                            </form>
-                        </td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <div class="h-[70%] overflow-y-scroll">
+                <table class="w-full mt-10">
+                    <thead>
+                        <tr class="border-b text-center">
+                            <th class="w-48 font-semibold text-sm py-2 text-gray-400">Nama Kebun</th>
+                            <th class="w-32 font-semibold text-sm py-2 text-gray-400">Luas</th>
+                            <th class="w-36 font-semibold text-sm py-2 text-gray-400">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="py-3" id="acaraContainer" class="">
+                        @foreach ($kebun as $kebuns)
+                        <tr class="border-b text-center">
+                            <td class="text-sm py-2">{{ $kebuns->namaKebun }}</td>
+                            <td class="text-sm py-2">{{ $kebuns->luas }}</td>
+                            <td class="text-sm py-2 flex gap-2 items-center justify-center">
+                                <button class="bg-blue-500 edit-button px-3 py-2 flex gap-2 justify-center items-center rounded-md" data-id="{{ $kebuns->id }}" data-nama="{{ $kebuns->namaKebun }}" data-luas="{{ $kebuns->luas }}">
+                                    <div class="w-4 h-4 overflow-hidden">
+                                        <img src="/images/penIcon.png" alt="editIcon" class="w-full h-full object-cover">
+                                    </div>
+                                    <p class="text-white">Edit</p>
+                                </button>
+                                <form action="{{ route('kebun.destroy', $kebuns->id) }}" method="POST" onsubmit="return confirmDelete(event)" class="bg-red-500 flex gap-2 justify-center items-center px-3 py-2 rounded-md">
+                                    @csrf
+                                    @method('DELETE')
+                                    <div class="w-4 h-4 overflow-hidden">
+                                        <img src="/images/trashIcon.png" alt="deleteIcon" class="w-full h-full object-cover">
+                                    </div>
+                                    <button type="submit" class="text-white">Hapus</button>
+                                </form>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+            </div>
         </div>
     </div>
     <!-- Modal Tambah Data -->
