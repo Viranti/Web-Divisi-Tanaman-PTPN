@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kebun;
 use App\Models\Raystat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\RedirectResponse;
 
 class RaystatController extends Controller
 {
@@ -14,7 +16,8 @@ class RaystatController extends Controller
     public function index()
     {
         $raystat = Raystat::all();
-        return view('admin/raystat', compact('raystat'));
+        $kebuns = Kebun::all();
+        return view('admin/raystat', compact('raystat', 'kebuns'));
     }
 
     /**
@@ -28,7 +31,7 @@ class RaystatController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id): RedirectResponse
     {
         $request->validate([
             'namaDokument' => 'required|string|max:255',
@@ -41,6 +44,7 @@ class RaystatController extends Controller
         // Buat instance raystat dan simpan data
         $raystat = new Raystat();
         $raystat->namaDokument = $request->namaDokument;
+        $raystat->id_kebun = $id;
         $raystat->document = $path;
         $raystat->save();
 
@@ -50,9 +54,11 @@ class RaystatController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $kebun = Kebun::findOrFail($id);
+        $raystat = Raystat::where('id_kebun', $id)->get();
+        return view('admin/raystatData', compact('kebun', 'raystat'));
     }
 
     /**
@@ -90,7 +96,7 @@ class RaystatController extends Controller
 
         $raystat->save();
 
-        return redirect()->route('raystat')->with('success', 'Dokumen berhasil diperbarui');
+        return redirect()->back()->with('success', 'Document updated successfully.');
     }
 
     /**
@@ -106,7 +112,7 @@ class RaystatController extends Controller
 
         $raystat->delete();
 
-        return redirect()->route('raystat')->with('success', 'Document deleted successfully.');
+        return redirect()->back()->with('success', 'Document updated successfully.');
     }
 
     public function download($id)

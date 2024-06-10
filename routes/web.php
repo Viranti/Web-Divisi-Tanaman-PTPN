@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\KebunController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
@@ -27,6 +28,9 @@ Route::get('/profil', function () {
 Route::get('/kontak', function () {
     return view('client/kontak');
 })->name('kontak');
+
+Route::post('/submit-feedback', [FeedbackController::class, 'submit']);
+
 // Auth Controller
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::get('/daftar', [AuthController::class, 'showDaftar'])->name('daftar');
@@ -44,8 +48,9 @@ Route::middleware('auth')->delete('/protas/delete/{id}', [ProtasController::clas
 Route::middleware('auth')->put('/protas/update', [ProtasController::class, 'update'])->name('protas.update');
 
 // Raystat Controller
+Route::middleware('auth')->get('/raystat/kebun/{id}', [RaystatController::class, 'show'])->name('raystat.show');
 Route::middleware('auth')->get('/raystat', [RaystatController::class, 'index'])->name('raystat');
-Route::middleware('auth')->post('/raystat/store', [RaystatController::class, 'store'])->name('raystat.store');
+Route::middleware('auth')->post('/raystat/store/{id}', [RaystatController::class, 'store'])->name('raystat.store');
 Route::middleware('auth')->get('/raystat/download/{id}', [RaystatController::class, 'download'])->name('raystat.download');
 Route::middleware('auth')->get('/raystat/edit/{id}', [RaystatController::class, 'edit'])->name('raystat.get');
 Route::middleware('auth')->delete('/raystat/delete/{id}', [RaystatController::class, 'destroy'])->name('raystat.destroy');
