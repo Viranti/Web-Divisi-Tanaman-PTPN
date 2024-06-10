@@ -96,7 +96,7 @@ class RaystatController extends Controller
 
         $raystat->save();
 
-        return redirect()->back()->with('success', 'Document updated successfully.');
+        return redirect()->back()->with('success', 'Document deleted successfully.');
     }
 
     /**

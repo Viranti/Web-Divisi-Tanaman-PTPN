@@ -58,8 +58,9 @@ Route::middleware('auth')->delete('/raystat/delete/{id}', [RaystatController::cl
 Route::middleware('auth')->put('/raystat/update', [RaystatController::class, 'update'])->name('raystat.update');
 
 // tahunTanam Controller
+Route::middleware('auth')->get('/tahunTanam/kebun/{id}', [TahunTanamController::class, 'show'])->name('tahunTanam.show');
 Route::middleware('auth')->get('/tahunTanam', [TahunTanamController::class, 'index'])->name('tahunTanam');
-Route::middleware('auth')->post('/tahunTanam/store', [TahunTanamController::class, 'store'])->name('tahunTanam.store');
+Route::middleware('auth')->post('/tahunTanam/store/{id}', [TahunTanamController::class, 'store'])->name('tahunTanam.store');
 Route::middleware('auth')->get('/tahunTanam/download/{id}', [TahunTanamController::class, 'download'])->name('tahunTanam.download');
 // Route::middleware('auth')->get('/tahunTanam/edit/{id}', [TahunTanamController::class, 'edit'])->name('tahunTanam.get');
 Route::middleware('auth')->delete('/tahunTanam/delete/{id}', [TahunTanamController::class, 'destroy'])->name('tahunTanam.destroy');
