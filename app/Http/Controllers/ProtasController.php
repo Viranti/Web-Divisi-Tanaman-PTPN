@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kebun;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Protas;
+use Illuminate\Http\RedirectResponse;
 
 class ProtasController extends Controller
 {
@@ -14,7 +16,8 @@ class ProtasController extends Controller
     public function index()
     {
         $protas = Protas::all();
-        return view('admin/protas', compact('protas'));
+        $kebuns = Kebun::all();
+        return view('admin/protas', compact('protas', 'kebuns'));
     }
 
     /**
@@ -28,7 +31,7 @@ class ProtasController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, $id):RedirectResponse
     {
         $request->validate([
             'namaDokument' => 'required|string|max:255',
@@ -41,6 +44,7 @@ class ProtasController extends Controller
         // Buat instance Protas dan simpan data
         $protas = new Protas();
         $protas->namaDokument = $request->namaDokument;
+        $protas->id_kebun = $id;
         $protas->document = $path;
         $protas->save();
 
@@ -50,10 +54,13 @@ class ProtasController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $kebun = Kebun::findOrFail($id);
+        $protas = Protas::where('id_kebun', $id)->get();
+        return view('admin/protasData', compact('kebun', 'protas'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -91,7 +98,7 @@ class ProtasController extends Controller
 
         $prota->save();
 
-        return redirect()->route('protas')->with('success', 'Dokumen berhasil diperbarui');
+        return redirect()->back()->with('success', 'Document updated successfully.');
     }
     /**
      * Remove the specified resource from storage.
@@ -106,7 +113,7 @@ class ProtasController extends Controller
 
         $protas->delete();
 
-        return redirect()->route('protas')->with('success', 'Document deleted successfully.');
+        return redirect()->back()->with('success', 'Document deleted successfully.');
     }
 
     public function download($id)

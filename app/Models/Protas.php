@@ -9,6 +9,6 @@ class Protas extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['namaDokumen', 'document'];
+    protected $fillable = ['namaDokumen', 'document', 'id_kebun'];
 }
 

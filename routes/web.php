@@ -40,8 +40,9 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Protas Controller
+Route::middleware('auth')->get('/protas/kebun/{id}', [ProtasController::class, 'show'])->name('protas.show');
 Route::middleware('auth')->get('/protas', [ProtasController::class, 'index'])->name('protas');
-Route::middleware('auth')->post('/protas/store', [ProtasController::class, 'store'])->name('protas.store');
+Route::middleware('auth')->post('/protas/store/{id}', [ProtasController::class, 'store'])->name('protas.store');
 Route::middleware('auth')->get('/protas/download/{id}', [ProtasController::class, 'download'])->name('protas.download');
 Route::middleware('auth')->get('/protas/edit/{id}', [ProtasController::class, 'edit'])->name('protas.get');
 Route::middleware('auth')->delete('/protas/delete/{id}', [ProtasController::class, 'destroy'])->name('protas.destroy');
