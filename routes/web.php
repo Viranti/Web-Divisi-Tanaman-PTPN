@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/profil', function () {
     return view('client/profil');
 })->name('profil');
+Route::get('/kontak', function () {
+    return view('client/kontak');
+})->name('kontak');
 // Auth Controller
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::get('/daftar', [AuthController::class, 'showDaftar'])->name('daftar');

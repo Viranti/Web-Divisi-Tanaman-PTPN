@@ -24,8 +24,7 @@
         <div class="flex gap-4">
             <a href="{{route('beranda')}}" class="font-bold text-xl text-[#19E064]">Beranda</a>
             <a href="{{route('profil')}}" class="font-bold text-xl">Profil</a>
-            <a href="" class="font-bold text-xl">Peta</a>
-            <a href="" class="font-bold text-xl">Kontak</a>
+            <a href="{{route('kontak')}}" class="font-bold text-xl">Kontak</a>
             <a href="{{ route('login')}}" class="font-bold text-xl">Login</a>
         </div>
     </div>
