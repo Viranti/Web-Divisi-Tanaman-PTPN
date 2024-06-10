@@ -52,8 +52,39 @@
                 <textarea class="bg-gray-100 rounded-md mt-3 w-full px-4 py-2 h-40" id="pesan" name="pesan" type="text" placeholder="Pesan"></textarea>
                 <button class="px-4 py-2 bg-[#00a639] w-full mt-5 rounded-md text-white font-semibold">Kirim Masukan</button>
             </div>
-            <div>
-
+            <div class="flex flex-col gap-5">
+                <div class="h-[50%] w-full overflow-hidden bg-white rounded-xl p-4">
+                    <img src="/images/logo.png" alt="logo" class="w-full h-full object-contain">
+                </div>
+                <div class="h-[31%] w-full overflow-hidden bg-white rounded-xl px-6 py-4 flex flex-col gap-5">
+                    <div class="flex gap-5 items-center">
+                        <div class="w-12 h-12 overflow-hidden bg-gray-200 rounded-full p-3">
+                            <img src="/images/gmail.png" alt="email" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-xl">Email</p>
+                            <p class="text-gray-400">ptpn5@ptpn5.co.id</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-center">
+                        <div class="w-12 h-12 overflow-hidden bg-gray-200 rounded-full p-3">
+                            <img src="/images/phone.png" alt="email" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-xl">Telepon</p>
+                            <p class="text-gray-400">(62-761) 66565</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 items-center">
+                        <div class="w-12 h-12 overflow-hidden bg-gray-200 rounded-full p-3">
+                            <img src="/images/location.png" alt="email" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-xl">Alamat</p>
+                            <p class="text-gray-400">Jl. Rambutan No. 43 Pekanbaru - Riau 28294</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
