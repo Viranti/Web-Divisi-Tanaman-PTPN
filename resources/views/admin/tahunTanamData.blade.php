@@ -77,7 +77,7 @@
                 </div>
                 <div class="flex gap-5 items-center">
                     <div class="justify-end flex flex-col items-end">
-                        <p class="font-semibold">VIRA</p>
+                        <p class="font-semibold">{{ Auth::user()->name }}</p>
                         <p class="text-[10px] text-gray-400">Admin</p>
                     </div>
                     <div class="w-11 h-11 rounded-full overflow-hidden cursor-pointer" id="akun">

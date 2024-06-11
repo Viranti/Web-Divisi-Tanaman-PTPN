@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="icon" href="/images/logo.ico" type="image/x-icon">
-    <title>Dashboard</title>
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Protas</title>
 </head>
 
 <body class="bg-white">
@@ -23,9 +27,9 @@
                 <!-- dashboard -->
                 <a href="{{ route('dashboard') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/dashboardOn.png" alt="" class="object-cover">
+                        <img src="/images/DashboardOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-bold text-[#00A639] ">Dashboard</p>
+                    <p class="font-semibold text-gray-400 ">Dashboard</p>
                 </a>
                 <!-- Raystat -->
                 <a href="{{ route('raystat') }}" class="flex gap-3 items-center">
@@ -39,7 +43,7 @@
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
                         <img src="/images/ProtasOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-semibold text-gray-400">Protas</p>
+                    <p class="font-bold text-gray-400">Protas</p>
                 </a>
                 <!-- Tahun Tanam -->
                 <a href="{{ route('tahunTanam') }}" class="flex gap-3 items-center">
@@ -68,81 +72,48 @@
         <div class="flex-auto px-5 py-8">
             <div class="flex w-full gap-5 justify-between">
                 <div>
-                    <p class="font-bold text-lg">DASHBOARD</p>
+                    <p class="font-bold text-lg">PETA PROTAS</p>
                     <p class="text-sm text-gray-400">PTPN IV REGIONAL III</p>
                 </div>
                 <div class="flex gap-5 items-center">
                     <div class="justify-end flex flex-col items-end">
-                        <p class="font-semibold uppercase">{{ Auth::user()->name }}</p>
+                        <p class="font-semibold">{{ Auth::user()->name }}</p>
                         <p class="text-[10px] text-gray-400">Admin</p>
                     </div>
-                    <div class="w-11 h-1w-11 rounded-full overflow-hidden cursor-pointer" id="akun">
+                    <div class="w-11 h-11 rounded-full overflow-hidden cursor-pointer" id="akun">
                         <img src="/images/vector.png" alt="profil">
                     </div>
                 </div>
             </div>
             <!-- Modal Logout -->
-            <div class="flex justify-end">
-                <div class="w-32 flex flex-col items-end mt-2 gap-1 hidden bg-white rounded-xl shadow-xl" id="modalLogout">
-                    <a href="{{ route('dataAkun') }}" class="px-4 py-2 flex justify-start items-center gap-2 w-32 h-fit">
-                        <div class="w-6 h-6 overflow-hidden">
-                            <img src="/images/user.png" alt="logoutIcon" class="w-full h-full object-cover">
-                        </div>
-                        <p class="font-semibold text-[#30b09d]">Akun</p>
-                    </a>
-                    <a href="{{ route('logout') }}" class="px-4 py-2 flex justify-start items-center gap-2 w-32 h-fit">
-                        <div class="w-6 h-6 overflow-hidden">
-                            <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
-                        </div>
-                        <p class="font-semibold text-[#30b09d]">Logout</p>
-                    </a>
-                </div>
+            <div class="w-full flex justify-end mt-2 hidden" id="modalLogout">
+                <a href="{{ route('logout')}}" class="bg-white rounded-md px-4 py-2 flex justify-center items-center gap-2 shadow-md w-32 h-fit">
+                    <div class="w-6 h-6 overflow-hidden">
+                        <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-semibold text-[#30b09d]">Logout</p>
+                </a>
             </div>
             <!-- Main -->
-            <div class="grid grid-cols-4 gap-8 mt-20">
-                <!-- raystat -->
-                <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
-                    <div class="w-20 h-20 overflow-hidden">
-                        <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
-                    </div>
-                    <div>
-                        <p class="font-semibold text-lg">Total Data</p>
-                        <p class="font-semibold">Raystat</p>
-                        <p class="font-semibold">{{ $totalData['totalRaystats'] }}</p>
-                    </div>
-                </div>
-                <!-- protas -->
-                <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
-                    <div class="w-20 h-20 overflow-hidden">
-                        <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
-                    </div>
-                    <div>
-                        <p class="font-semibold text-lg">Total Data</p>
-                        <p class="font-semibold">Protas</p>
-                        <p class="font-semibold">{{ $totalData['totalProtas'] }}</p>
-                    </div>
-                </div>
-                <!-- tahun Tanam -->
-                <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
-                    <div class="w-20 h-20 overflow-hidden">
-                        <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
-                    </div>
-                    <div>
-                        <p class="font-semibold text-lg">Total Data</p>
-                        <p class="font-semibold">Tahun Tanam</p>
-                        <p class="font-semibold">{{ $totalData['totalTahunTanam'] }}</p>
-                    </div>
-                </div>
-                <div class="bg-gray-200 md:h-40 h-60 flex gap-8 rounded-md justify-center items-center">
-                    <div class="w-20 h-20 overflow-hidden">
-                        <img src="/images/QgisLogo.png" alt="Qgis" class="object-cover w-full h-full">
-                    </div>
-                    <div>
-                        <p class="font-semibold text-lg">Total Seluruh Data</p>
-                        <p class="font-semibold">{{ $totalData['totalAllData'] }}</p>
-                    </div>
-                </div>
-            </div>
+             <div class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-32 font-bold w-fit">
+                 <a href="{{route('daftar')}}" >Tambah Akun</a>
+             </div>
+            <table class="w-full mt-10">
+                <thead>
+                    <tr class="border-b text-center">
+                        <th class="w-48 font-semibold text-sm py-2 text-gray-400">Nama</th>
+                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">email</th>
+                    </tr>
+                </thead>
+                <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
+                    @foreach ($users as $user)
+                    <tr class="border-b text-center">
+                        <td class="text-sm py-2">{{ $user->name }}</td>
+                        <td class="text-sm py-2">{{ $user->email }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
     <!-- Js Logout -->

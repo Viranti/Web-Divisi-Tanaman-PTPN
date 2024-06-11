@@ -43,14 +43,6 @@
                 <div>
                     <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">MASUK</button>
                 </div>
-                <div class="flex items-center my-4">
-                    <hr class="flex-grow border-gray-300">
-                    <span class="mx-2 text-gray-500">Atau</span>
-                    <hr class="flex-grow border-gray-300">
-                </div>
-                <div class="text-center mt-4 border border-black py-2 rounded-md">
-                    <a href="{{route('daftar')}}" class="text-black hover:underline">DAFTAR SEKARANG</a>
-                </div>
             </form>
         </div>
     </div>

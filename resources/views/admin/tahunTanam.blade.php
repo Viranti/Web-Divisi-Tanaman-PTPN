@@ -77,7 +77,7 @@
                 </div>
                 <div class="flex gap-5 items-center">
                     <div class="justify-end flex flex-col items-end">
-                        <p class="font-semibold">VIRA</p>
+                        <p class="font-semibold">{{ Auth::user()->name }}</p>
                         <p class="text-[10px] text-gray-400">Admin</p>
                     </div>
                     <div class="w-11 h-11 rounded-full overflow-hidden cursor-pointer" id="akun">
@@ -95,9 +95,9 @@
                 </a>
             </div>
             <!-- Main -->
-            <div class="grid grid-cols-4 gap-5">
+            <div class="grid grid-cols-4 gap-5 mt-20">
                 @foreach ( $kebuns as $kebun )
-                <a href="{{ route('tahunTanam.show', ['id' => $kebun->id]) }}" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">
+                <a href="{{ route('tahunTanam.show', ['id' => $kebun->id]) }}" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-5 font-bold">
                     <p>{{$kebun->namaKebun}}</p>
                 </a>
                 @endforeach

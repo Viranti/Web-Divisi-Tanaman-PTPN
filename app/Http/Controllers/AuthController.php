@@ -18,6 +18,12 @@ class AuthController extends Controller
         return view('admin/login');
     }
 
+    public function index()
+    {
+        $users = User::all();
+        return view('admin/akun', compact('users'));
+    }
+
     public function login(Request $request)
     {
         // Validation

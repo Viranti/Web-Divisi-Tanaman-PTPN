@@ -37,6 +37,7 @@ Route::get('/daftar', [AuthController::class, 'showDaftar'])->name('daftar');
 Route::post('/login-store', [AuthController::class, 'login'])->name('login.store');
 Route::post('/daftar-store', [AuthController::class, 'daftar'])->name('daftar.store');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/data-akun', [AuthController::class, 'index'])->name('dataAkun');
 
 
 // Protas Controller
