@@ -13,7 +13,7 @@ class FeedbackMail extends Mailable
     public $details;
 
     /**
-     * Buat instance pesan baru.
+     * Create a new message instance.
      *
      * @return void
      */
@@ -23,13 +23,14 @@ class FeedbackMail extends Mailable
     }
 
     /**
-     * Bangun pesan.
+     * Build the message.
      *
      * @return $this
      */
     public function build()
     {
         return $this->subject('Masukan Baru')
-                    ->view('/client/kontak');
+                    ->view('emails.feedback')
+                    ->with('details', $this->details);
     }
 }

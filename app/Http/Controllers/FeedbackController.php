@@ -17,7 +17,7 @@ class FeedbackController extends Controller
             'message' => $request->input('message')
         ];
 
-        Mail::to('raulocu23@gmail.com')->send(new FeedbackMail($details));
+        Mail::to('sukarelawanviranti@gmail.com')->send(new FeedbackMail($details));
 
         return response()->json(['message' => 'Masukan berhasil dikirim!']);
     }
