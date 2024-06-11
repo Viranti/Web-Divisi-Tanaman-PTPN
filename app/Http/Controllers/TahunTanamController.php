@@ -34,7 +34,7 @@ class TahunTanamController extends Controller
     {
         $request->validate([
             'namaDokument' => 'required|string|max:255',
-            'document' => 'required|file|mimes:pdf|max:2048'
+            'document' => 'required|file|mimes:pdf|max:40000'
         ]);
 
         // Simpan file yang diupload dan dapatkan path-nya
