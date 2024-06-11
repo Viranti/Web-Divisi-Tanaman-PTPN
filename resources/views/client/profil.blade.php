@@ -62,7 +62,7 @@
             <div class="flex gap-10 mt-10 items-center justify-center">
                 <div class="flex flex-col justify-center items-center">
                     <div class="w-32 h-44 overflow-hidden">
-                        <img src="/images/p yasir.png" alt="kadiv" class="w-full rounded-full h-full">
+                        <img src="/images/pak yasirrr.png" alt="kadiv" class="w-full rounded-full h-full">
                     </div>
                     <p class="px-4 py-2 border-2 border-black text-center font-bold mt-5 rounded-xl">Zafri Yaseer<br>
                         Ka. Sub. Bagian Produksi
@@ -106,46 +106,47 @@
                 </thead>
                 <tbody>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Andra Novriza</td>
-                        <td class="border-2 border-black px-4 py-2">Nava Karina</td>
-                        <td class="border-2 border-black px-4 py-2">Farid Ramansyah</td>
-                        <td class="border-2 border-black px-4 py-2">Muhktaril Urfa Akroma</td>
+                        <td class="border-2 border-black px-4 py-2">Andra Novriza (Asisten)
+                        </td>
+                        <td class="border-2 border-black px-4 py-2">Nava Karina (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Farid Ramansyah (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Muhktaril Urfa Akroma (Asisten)</td>
                     </tr>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Ahmad Afandy Harahap (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Aldira Noval Nasution (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Nur Rahmad Yunis (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Tata Sukmana (Asisten)</td>
                     </tr>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Antonius Silvister Tarigan (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Dwi Yolanda Yulvi (Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">Prima Irawan (Asisten)</td>
+                        <td class="border-2 border-black px-4 py-2">Edi Suprianto(Krani)</td>
                     </tr>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Hasan Basri(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">Mairis(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">Ekla Ripala Gani(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">Maidi Syahputra(Krani)</td>
                     </tr>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">Edi Sofyan(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">-</td>
+                        <td class="border-2 border-black px-4 py-2">Ricky Walhendri Harahap(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">Fhinky Olivia Tiara Sakti(Krani)</td>
                     </tr>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">-</td>
+                        <td class="border-2 border-black px-4 py-2">-</td>
+                        <td class="border-2 border-black px-4 py-2">Hafizh Dhillah(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">Arif Prihatna(Krani)</td>
                     </tr>
                     <tr class="text-center">
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
-                        <td class="border-2 border-black px-4 py-2">Test</td>
+                        <td class="border-2 border-black px-4 py-2">-</td>
+                        <td class="border-2 border-black px-4 py-2">-</td>
+                        <td class="border-2 border-black px-4 py-2">M.Auli(Krani)</td>
+                        <td class="border-2 border-black px-4 py-2">-</td>
                     </tr>
                 </tbody>
             </table>
