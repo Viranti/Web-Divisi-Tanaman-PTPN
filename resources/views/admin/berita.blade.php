@@ -77,7 +77,7 @@
                 </div>
                 <div class="flex gap-5 items-center">
                     <div class="justify-end flex flex-col items-end">
-                        <p class="font-semibold uppercase">{{ Auth::user()->name }}</p>
+                        <p class="font-semibold capitalize">{{ Auth::user()->name }}</p>
                         <p class="text-[10px] text-gray-400">Admin</p>
                     </div>
                     <div class="w-11 h-1w-11 rounded-full overflow-hidden cursor-pointer" id="akun">
