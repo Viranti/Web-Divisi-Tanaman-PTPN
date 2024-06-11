@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\KebunController;
 use App\Http\Controllers\ProtasController;
 use App\Http\Controllers\RaystatController;
@@ -24,6 +25,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/profil', function () {
     return view('client/profil');
 })->name('profil');
+Route::get('/kontak', function () {
+    return view('client/kontak');
+})->name('kontak');
+
+Route::post('/submit-feedback', [FeedbackController::class, 'submit']);
+
 // Auth Controller
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
 Route::get('/daftar', [AuthController::class, 'showDaftar'])->name('daftar');
@@ -33,24 +40,27 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
 // Protas Controller
+Route::middleware('auth')->get('/protas/kebun/{id}', [ProtasController::class, 'show'])->name('protas.show');
 Route::middleware('auth')->get('/protas', [ProtasController::class, 'index'])->name('protas');
-Route::middleware('auth')->post('/protas/store', [ProtasController::class, 'store'])->name('protas.store');
+Route::middleware('auth')->post('/protas/store/{id}', [ProtasController::class, 'store'])->name('protas.store');
 Route::middleware('auth')->get('/protas/download/{id}', [ProtasController::class, 'download'])->name('protas.download');
 Route::middleware('auth')->get('/protas/edit/{id}', [ProtasController::class, 'edit'])->name('protas.get');
 Route::middleware('auth')->delete('/protas/delete/{id}', [ProtasController::class, 'destroy'])->name('protas.destroy');
 Route::middleware('auth')->put('/protas/update', [ProtasController::class, 'update'])->name('protas.update');
 
 // Raystat Controller
+Route::middleware('auth')->get('/raystat/kebun/{id}', [RaystatController::class, 'show'])->name('raystat.show');
 Route::middleware('auth')->get('/raystat', [RaystatController::class, 'index'])->name('raystat');
-Route::middleware('auth')->post('/raystat/store', [RaystatController::class, 'store'])->name('raystat.store');
+Route::middleware('auth')->post('/raystat/store/{id}', [RaystatController::class, 'store'])->name('raystat.store');
 Route::middleware('auth')->get('/raystat/download/{id}', [RaystatController::class, 'download'])->name('raystat.download');
 Route::middleware('auth')->get('/raystat/edit/{id}', [RaystatController::class, 'edit'])->name('raystat.get');
 Route::middleware('auth')->delete('/raystat/delete/{id}', [RaystatController::class, 'destroy'])->name('raystat.destroy');
 Route::middleware('auth')->put('/raystat/update', [RaystatController::class, 'update'])->name('raystat.update');
 
 // tahunTanam Controller
+Route::middleware('auth')->get('/tahunTanam/kebun/{id}', [TahunTanamController::class, 'show'])->name('tahunTanam.show');
 Route::middleware('auth')->get('/tahunTanam', [TahunTanamController::class, 'index'])->name('tahunTanam');
-Route::middleware('auth')->post('/tahunTanam/store', [TahunTanamController::class, 'store'])->name('tahunTanam.store');
+Route::middleware('auth')->post('/tahunTanam/store/{id}', [TahunTanamController::class, 'store'])->name('tahunTanam.store');
 Route::middleware('auth')->get('/tahunTanam/download/{id}', [TahunTanamController::class, 'download'])->name('tahunTanam.download');
 // Route::middleware('auth')->get('/tahunTanam/edit/{id}', [TahunTanamController::class, 'edit'])->name('tahunTanam.get');
 Route::middleware('auth')->delete('/tahunTanam/delete/{id}', [TahunTanamController::class, 'destroy'])->name('tahunTanam.destroy');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kebun;
 use App\Models\TahunTanam;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 class TahunTanamController extends Controller
@@ -13,7 +15,8 @@ class TahunTanamController extends Controller
     public function index()
     {
         $tahunTanam = TahunTanam::all();
-        return view('admin/tahunTanam', compact('tahunTanam'));
+        $kebuns = Kebun::all();
+        return view('admin/tahunTanam', compact('tahunTanam', 'kebuns'));
     }
 
     /**
@@ -27,7 +30,7 @@ class TahunTanamController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,$id):RedirectResponse
     {
         $request->validate([
             'namaDokument' => 'required|string|max:255',
@@ -40,6 +43,7 @@ class TahunTanamController extends Controller
         // Buat instance raystat dan simpan data
         $tahunTanam = new TahunTanam();
         $tahunTanam->namaDokument = $request->namaDokument;
+        $tahunTanam->id_kebun = $id;
         $tahunTanam->document = $path;
         $tahunTanam->save();
 
@@ -49,9 +53,11 @@ class TahunTanamController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $kebun = Kebun::findOrFail($id);
+        $tahunTanam = TahunTanam::where('id_kebun', $id)->get();
+        return view('admin/tahunTanamData', compact('kebun', 'tahunTanam'));
     }
 
     /**
@@ -89,7 +95,7 @@ class TahunTanamController extends Controller
 
         $tahunTanam->save();
 
-        return redirect()->route('tahunTanam')->with('success', 'Dokumen berhasil diperbarui');
+        return redirect()->back()->with('success', 'Document updated successfully.');
     }
 
     /**
@@ -104,8 +110,7 @@ class TahunTanamController extends Controller
         }
 
         $tahunTanam->delete();
-
-        return redirect()->route('tahunTanam')->with('success', 'Document deleted successfully.');
+        return redirect()->back()->with('success', 'Document deleted successfully.');
     }
 
     public function download($id)
