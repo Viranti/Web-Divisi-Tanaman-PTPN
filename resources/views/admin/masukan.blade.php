@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <!-- SweetAlert2 JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <title>Raystat</title>
+    <title>Protas</title>
 </head>
 
 <body class="bg-white">
@@ -34,16 +34,16 @@
                 <!-- Raystat -->
                 <a href="{{ route('raystat') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/RaystatOn.png" alt="" class="object-cover">
+                        <img src="/images/RaystatOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-bold text-[#00A639]">Raystat</p>
+                    <p class="font-semibold text-gray-400">Raystat</p>
                 </a>
                 <!-- Protas -->
                 <a href="{{ route('protas') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
                         <img src="/images/ProtasOf.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-semibold text-gray-400">Protas</p>
+                    <p class="font-bold text-gray-400">Protas</p>
                 </a>
                 <!-- Tahun Tanam -->
                 <a href="{{ route('tahunTanam') }}" class="flex gap-3 items-center">
@@ -69,9 +69,9 @@
                 <!-- masukan -->
                 <a href="{{ route('masukan') }}" class="flex gap-3 items-center">
                     <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
-                        <img src="/images/masukanOf.png" alt="" class="object-cover">
+                        <img src="/images/masukanOn.png" alt="" class="object-cover">
                     </div>
-                    <p class="font-semibold text-gray-400">Masukan</p>
+                    <p class="font-semibold text-[#00A639]">Masukan</p>
                 </a>
             </div>
         </div>
@@ -79,7 +79,7 @@
         <div class="flex-auto px-5 py-8">
             <div class="flex w-full gap-5 justify-between">
                 <div>
-                    <p class="font-bold text-lg">PETA RAYSTAT</p>
+                    <p class="font-bold text-lg">Masukan</p>
                     <p class="text-sm text-gray-400">PTPN IV REGIONAL III</p>
                 </div>
                 <div class="flex gap-5 items-center">
@@ -110,32 +110,27 @@
                 </div>
             </div>
             <!-- Main -->
-            <div class="grid grid-cols-4 gap-5 mt-20">
-                @foreach ( $kebuns as $kebun )
-                <a href="{{ route('raystat.show', ['id' => $kebun->id]) }}" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-5 font-bold">
-                    <p>{{$kebun->namaKebun}}</p>
-                </a>
-                @endforeach
-            </div>
+            <button id="tambahDataButton" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>
+            <table class="w-full mt-10">
+                <thead>
+                    <tr class="border-b text-center">
+                        <th class="w-48 font-semibold text-sm py-2 text-gray-400">Nama</th>
+                        <th class="w-32 font-semibold text-sm py-2 text-gray-400">Email</th>
+                        <th class="w-36 font-semibold text-sm py-2 text-gray-400">Pesan</th>
+                    </tr>
+                </thead>
+                <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
+                    @foreach ($feedbacks as $feedback)
+                    <tr class="border-b text-center">
+                        <td class="text-sm py-2">{{ $feedback->nama }}</td>
+                        <td class="text-sm py-2">{{ $feedback->email }}</td>
+                        <td class="text-sm py-2">{{ $feedback->pesan }}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
     </div>
-    <!-- Js Logout -->
-    <script>
-        document.getElementById('akun').addEventListener('click', function(event) {
-            document.getElementById('modalLogout').classList.remove('hidden');
-            event.stopPropagation(); // Prevent click event from bubbling up
-        });
-
-        window.addEventListener('click', function(event) {
-            if (!document.getElementById('modalLogout').contains(event.target) && event.target !== document.getElementById('akun')) {
-                document.getElementById('modalLogout').classList.add('hidden');
-            }
-        });
-
-        document.getElementById('modalLogout').addEventListener('click', function(event) {
-            event.stopPropagation(); // Prevent click event from bubbling up
-        });
-    </script>
 </body>
 
 </html>

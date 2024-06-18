@@ -62,6 +62,13 @@
                     </div>
                     <p class="font-semibold text-gray-400">Kebun</p>
                 </a>
+                <!-- masukan -->
+                <a href="{{ route('masukan') }}" class="flex gap-3 items-center">
+                    <div class="sm:w-6 sm:h-6 md:w-8 md:h-8 overflow-hidden">
+                        <img src="/images/masukanOf.png" alt="" class="object-cover">
+                    </div>
+                    <p class="font-semibold text-gray-400">Masukan</p>
+                </a>
             </div>
         </div>
         <!-- Kanan -->

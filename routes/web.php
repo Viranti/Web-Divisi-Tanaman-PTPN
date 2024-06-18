@@ -25,9 +25,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/profil', function () {
     return view('client/profil');
 })->name('profil');
-Route::get('/kontak', function () {
-    return view('client/kontak');
-})->name('kontak');
+
 
 Route::post('/submit-feedback', [FeedbackController::class, 'submit']);
 
@@ -85,3 +83,8 @@ Route::middleware('auth')->get('/kebun', [KebunController::class, 'index'])->nam
 Route::middleware('auth')->post('/kebun/store', [KebunController::class, 'store'])->name('kebun.store');
 Route::middleware('auth')->delete('/kebun/delete/{id}', [KebunController::class, 'destroy'])->name('kebun.destroy');
 Route::middleware('auth')->put('/kebun/update', [KebunController::class, 'update'])->name('kebun.update');
+
+// feedback controller
+Route::post('/kontak/store', [FeedbackController::class, 'store'])->name('feedback.store');
+Route::get('/kontak', [FeedbackController::class, 'index'])->name('kontak');
+Route::get('/masukan', [FeedbackController::class, 'show'])->name('masukan');

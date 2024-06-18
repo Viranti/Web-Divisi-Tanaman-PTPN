@@ -35,22 +35,16 @@
                 <p class="font-bold text-2xl">Hubungi Kami</p>
                 <p class="text-sm text-gray-500 text-left text-justify mt-5">Punya pertanyaan atau masukan?, kami siap membantu, kirimkan pesan kepada kami</p>
                 <hr class="flex-grow border-gray-300 mt-5">
-                <form action="/submit-feedback" method="POST">
+                <form action="{{ route('feedback.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    <div class="grid grid-cols-2 mt-7 gap-5">
-                        <div>
-                            <p class="text-lg font-semibold">Nama Depan</p>
-                            <input type="text" name="first_name" class="px-4 py-2 bg-gray-100 rounded-md mt-3 w-full" placeholder="Nama Depan">
-                        </div>
-                        <div>
-                            <p class="text-lg font-semibold">Nama Belakang</p>
-                            <input type="text" name="last_name" class="px-4 py-2 bg-gray-100 rounded-md mt-3 w-full" placeholder="Nama Belakang">
-                        </div>
+                    <div>
+                        <p class="text-lg font-semibold">Nama</p>
+                        <input type="text" name="nama" id="nama" class="px-4 py-2 bg-gray-100 rounded-md mt-3 w-full" placeholder="Nama Anda">
                     </div>
                     <p class="text-lg font-semibold mt-5">Email</p>
-                    <input type="text" name="email" class="px-4 py-2 bg-gray-100 rounded-md mt-3 w-full" placeholder="Email">
+                    <input type="text" name="email" id="email" class="px-4 py-2 bg-gray-100 rounded-md mt-3 w-full" placeholder="Email">
                     <p class="text-lg font-semibold mt-5">Pesan</p>
-                    <textarea name="message" class="bg-gray-100 rounded-md mt-3 w-full px-4 py-2 h-40" placeholder="Pesan"></textarea>
+                    <textarea name="pesan" id="pesan" class="bg-gray-100 rounded-md mt-3 w-full px-4 py-2 h-40" placeholder="Pesan"></textarea>
                     <button type="submit" class="px-4 py-2 bg-[#00a639] w-full mt-5 rounded-md text-white font-semibold">Kirim Masukan</button>
                 </form>
             </div>
