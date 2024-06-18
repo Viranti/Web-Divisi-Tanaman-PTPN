@@ -110,7 +110,6 @@
                 </div>
             </div>
             <!-- Main -->
-            <button id="tambahDataButton" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>
             <table class="w-full mt-10">
                 <thead>
                     <tr class="border-b text-center">
