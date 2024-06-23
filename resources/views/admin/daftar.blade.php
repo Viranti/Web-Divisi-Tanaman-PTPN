@@ -33,11 +33,6 @@
                     <label class="block text-gray-700">Password</label>
                     <input type="password" name="password" class="w-full p-2 border border-gray-300 rounded mt-1" placeholder="Masukkan Password">
                 </div>
-                <div class="flex items-center justify-end mb-6">
-                    <div>
-                        <span class="text-gray-600">Lupa Password?</span>
-                    </div>
-                </div>
                 <div>
                     <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600">Daftar</button>
                 </div>
