@@ -94,8 +94,10 @@
             </div>
             <!-- Modal Logout -->
             <div class="flex justify-end">
-                <div class="w-32 flex flex-col items-end mt-2 gap-1 hidden bg-white rounded-xl shadow-xl" id="modalLogout">
-                    <a href="{{ route('dataAkun') }}" class="px-4 py-2 flex justify-start items-center gap-2 w-32 h-fit">
+                <div class="w-32 flex flex-col items-end mt-2 gap-1 hidden bg-white rounded-xl shadow-xl"
+                    id="modalLogout">
+                    <a href="{{ route('dataAkun') }}"
+                        class="px-4 py-2 flex justify-start items-center gap-2 w-32 h-fit">
                         <div class="w-6 h-6 overflow-hidden">
                             <img src="/images/user.png" alt="logoutIcon" class="w-full h-full object-cover">
                         </div>
@@ -120,16 +122,33 @@
                 </thead>
                 <tbody class="py-3" id="acaraContainer" class="h-40 overflow-y-auto">
                     @foreach ($feedbacks as $feedback)
-                    <tr class="border-b text-center">
-                        <td class="text-sm py-2">{{ $feedback->nama }}</td>
-                        <td class="text-sm py-2">{{ $feedback->email }}</td>
-                        <td class="text-sm py-2">{{ $feedback->pesan }}</td>
-                    </tr>
+                        <tr class="border-b text-center">
+                            <td class="text-sm py-2">{{ $feedback->nama }}</td>
+                            <td class="text-sm py-2">{{ $feedback->email }}</td>
+                            <td class="text-sm py-2">{{ $feedback->pesan }}</td>
+                        </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+    <!-- Js Logout -->
+    <script>
+        document.getElementById('akun').addEventListener('click', function (event) {
+            document.getElementById('modalLogout').classList.remove('hidden');
+            event.stopPropagation(); // Prevent click event from bubbling up
+        });
+
+        window.addEventListener('click', function (event) {
+            if (!document.getElementById('modalLogout').contains(event.target) && event.target !== document.getElementById('akun')) {
+                document.getElementById('modalLogout').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('modalLogout').addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent click event from bubbling up
+        });
+    </script>
 </body>
 
 </html>

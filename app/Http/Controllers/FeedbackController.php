@@ -40,7 +40,7 @@ class FeedbackController extends Controller
         $feedback->pesan = $request->pesan;
         $feedback->save();
 
-        return redirect()->back()->with('success', 'Document uploaded successfully.');
+        return redirect()->back()->with('success', 'Masukan Terkirim');
     }
 
     /**

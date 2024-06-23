@@ -93,13 +93,21 @@
                 </div>
             </div>
             <!-- Modal Logout -->
-            <div class="w-full flex justify-end mt-2 hidden" id="modalLogout">
-                <a href="{{ route('logout')}}" class="bg-white rounded-md px-4 py-2 flex justify-center items-center gap-2 shadow-md w-32 h-fit">
-                    <div class="w-6 h-6 overflow-hidden">
-                        <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
-                    </div>
-                    <p class="font-semibold text-[#30b09d]">Logout</p>
-                </a>
+            <div class="flex justify-end">
+                <div class="w-32 flex flex-col items-end mt-2 gap-1 hidden bg-white rounded-xl shadow-xl" id="modalLogout">
+                    <a href="{{ route('dataAkun') }}" class="px-4 py-2 flex justify-start items-center gap-2 w-32 h-fit">
+                        <div class="w-6 h-6 overflow-hidden">
+                            <img src="/images/user.png" alt="logoutIcon" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-semibold text-[#30b09d]">Akun</p>
+                    </a>
+                    <a href="{{ route('logout') }}" class="px-4 py-2 flex justify-start items-center gap-2 w-32 h-fit">
+                        <div class="w-6 h-6 overflow-hidden">
+                            <img src="/images/logout.png" alt="logoutIcon" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-semibold text-[#30b09d]">Logout</p>
+                    </a>
+                </div>
             </div>
             <!-- Main -->
             <button id="tambahDataButton" class="bg-[#00a639] px-4 py-2 text-white rounded-md shadow-md shadow-green-200 mt-20 font-bold">Tambah Data</button>

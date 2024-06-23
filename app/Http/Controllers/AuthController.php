@@ -85,7 +85,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('login');
+        return redirect()->route('dataAkun');
     }
 
     public function logout(Request $request)
