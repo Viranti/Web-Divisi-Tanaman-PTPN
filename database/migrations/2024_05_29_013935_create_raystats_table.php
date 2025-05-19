@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('raystats', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_kebun');
             $table->string('namaDokument');
             $table->string('document');
             $table->timestamps();
+            $table->foreign('id_kebun')->references('id')->on('kebuns')->onDelete('cascade');
         });
     }
 

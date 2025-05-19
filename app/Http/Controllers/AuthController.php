@@ -23,6 +23,36 @@ class AuthController extends Controller
         $users = User::all();
         return view('admin/akun', compact('users'));
     }
+    public function create()
+    {
+        // View for creating a new user
+    }
+
+    public function store(Request $request)
+
+    {
+        // store a new user
+    }
+
+    public function show($id)
+    {
+        // Show a specific user
+    }
+
+    public function edit($id)
+    {
+        // Edit a specific user
+    }
+    public function update()
+    {
+        // Update a specific user
+    }
+    public function destroy($id)
+    {
+        // Delete a specific user
+    }
+
+
 
     public function login(Request $request)
     {
@@ -85,7 +115,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->route('dataAkun');
+        return redirect()->route('dashboard');
     }
 
     public function logout(Request $request)

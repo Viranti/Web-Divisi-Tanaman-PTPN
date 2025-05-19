@@ -9,7 +9,7 @@
     <title>Berita</title>
 </head>
 
-<body class="">
+<body class="flex flex-col justify-between min-h-screen">
     <!-- Header -->
     <div class="flex justify-between px-10 py-4 justify-center items-center">
         <a href="{{route('beranda')}}" class="flex gap-2 justify-center items-center">
